@@ -1,0 +1,2608 @@
+{
+  "version": 3,
+  "title": "Pirates Crossfire – Pulmasetti",
+  "puzzles": [
+    {
+      "id": "2c8f9953-f9a3-43cc-bf57-0a3fb0e4228e",
+      "name": "Pulma 1",
+      "mode": "peace",
+      "placements": [
+        {
+          "instId": "ae77d142-2560-4846-95d2-c8224c39a6ce",
+          "pieceId": "island1",
+          "rot": 2,
+          "x": 3,
+          "y": 2
+        },
+        {
+          "instId": "fad72804-4232-4575-9007-42dda7ae2b68",
+          "pieceId": "island2",
+          "rot": 2,
+          "x": 2,
+          "y": 2
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "pirate",
+          "x": 4,
+          "y": 3
+        },
+        {
+          "side": "pirate",
+          "x": 2,
+          "y": 4
+        },
+        {
+          "side": "pirate",
+          "x": 1,
+          "y": 2
+        },
+        {
+          "side": "navy",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "side": "navy",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "side": "navy",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "side": "navy",
+          "x": 0,
+          "y": 4
+        }
+      ]
+    },
+    {
+      "id": "14f7f578-4e3b-48b2-99ab-a818ba5d0c0e",
+      "name": "Pulma 7",
+      "mode": "peace",
+      "placements": [
+        {
+          "instId": "73b2a106-d907-486e-b464-8fd4a12f37aa",
+          "pieceId": "island1",
+          "rot": 1,
+          "x": 1,
+          "y": 1
+        },
+        {
+          "instId": "ebe5c9ac-a2d7-42e7-9d67-46cd18b04222",
+          "pieceId": "island2",
+          "rot": 2,
+          "x": 2,
+          "y": 0
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "pirate",
+          "x": 0,
+          "y": 2
+        },
+        {
+          "side": "pirate",
+          "x": 1,
+          "y": 4
+        },
+        {
+          "side": "pirate",
+          "x": 3,
+          "y": 3
+        }
+      ]
+    },
+    {
+      "id": "cc085685-9ac6-4fd0-b4b0-11257324148a",
+      "name": "Pulma 8",
+      "mode": "peace",
+      "placements": [
+        {
+          "instId": "203e3fe0-f0cb-4166-9f89-da7d5b601a0b",
+          "pieceId": "island1",
+          "rot": 0,
+          "x": 1,
+          "y": 1
+        },
+        {
+          "instId": "4cb4ffb3-0bfb-471f-87ac-bc630445aef8",
+          "pieceId": "island2",
+          "rot": 2,
+          "x": 2,
+          "y": 3
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "pirate",
+          "x": 0,
+          "y": 3
+        },
+        {
+          "side": "pirate",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "side": "navy",
+          "x": 1,
+          "y": 0
+        },
+        {
+          "side": "navy",
+          "x": 2,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "id": "0ae8718e-066d-44d9-924b-455b16533dd3",
+      "name": "Pulma 9",
+      "mode": "peace",
+      "placements": [
+        {
+          "instId": "d5baadb3-e2de-4655-b59d-ffa869843fdd",
+          "pieceId": "island1",
+          "rot": 0,
+          "x": 2,
+          "y": 2
+        },
+        {
+          "instId": "3f311418-be48-4025-9fa8-43a785abdf67",
+          "pieceId": "island2",
+          "rot": 0,
+          "x": 3,
+          "y": 3
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 0,
+          "y": 1
+        },
+        {
+          "side": "navy",
+          "x": 1,
+          "y": 1
+        },
+        {
+          "side": "navy",
+          "x": 2,
+          "y": 1
+        }
+      ]
+    },
+    {
+      "id": "06db8bea-f63c-4e04-a883-b17bef949bfb",
+      "name": "Pulma 10",
+      "mode": "peace",
+      "placements": [
+        {
+          "instId": "a0701fd9-d03d-477a-bc62-e8f74571b3dc",
+          "pieceId": "island1",
+          "rot": 1,
+          "x": 2,
+          "y": 1
+        },
+        {
+          "instId": "f6d2ea06-6c3b-443a-890c-35a6acef6302",
+          "pieceId": "island2",
+          "rot": 2,
+          "x": 2,
+          "y": 3
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "pirate",
+          "x": 2,
+          "y": 0
+        },
+        {
+          "side": "navy",
+          "x": 0,
+          "y": 1
+        }
+      ]
+    },
+    {
+      "id": "4eb1ca64-24b0-48e2-8a8a-b0e9fdb465c7",
+      "name": "Pulma 11",
+      "mode": "peace",
+      "placements": [
+        {
+          "instId": "3631b87a-db76-4a9b-8960-ce22d9e1add6",
+          "pieceId": "island1",
+          "rot": 0,
+          "x": 0,
+          "y": 3
+        },
+        {
+          "instId": "59c78e12-7f60-45f7-adf9-134de6c841b1",
+          "pieceId": "island2",
+          "rot": 0,
+          "x": 2,
+          "y": 2
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 4,
+          "y": 2
+        },
+        {
+          "side": "pirate",
+          "x": 3,
+          "y": 1
+        }
+      ]
+    },
+    {
+      "id": "bfd3f202-f19c-45a4-8700-4e1c7b98a359",
+      "name": "Pulma 12",
+      "mode": "peace",
+      "placements": [
+        {
+          "instId": "3cc1527b-a7d6-4f00-8ff8-39e27aa51770",
+          "pieceId": "island1",
+          "rot": 1,
+          "x": 2,
+          "y": 0
+        },
+        {
+          "instId": "f168a719-28c2-4f68-9f59-35904a641f24",
+          "pieceId": "island2",
+          "rot": 1,
+          "x": 3,
+          "y": 3
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 0,
+          "y": 1
+        },
+        {
+          "side": "navy",
+          "x": 1,
+          "y": 1
+        },
+        {
+          "side": "navy",
+          "x": 0,
+          "y": 4
+        }
+      ]
+    },
+    {
+      "id": "01714b25-e758-44b5-8f00-582fa02743c0",
+      "name": "Pulma 13",
+      "mode": "peace",
+      "placements": [
+        {
+          "instId": "c488aa52-064b-4950-b9bc-e3d8bce4bc3f",
+          "pieceId": "island2",
+          "rot": 0,
+          "x": 1,
+          "y": 2
+        },
+        {
+          "instId": "d7c10ffb-77d9-40c8-a8b8-c657dd69aeb8",
+          "pieceId": "island1",
+          "rot": 1,
+          "x": 4,
+          "y": 3
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 1,
+          "y": 0
+        },
+        {
+          "side": "navy",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "side": "pirate",
+          "x": 1,
+          "y": 3
+        }
+      ]
+    },
+    {
+      "id": "c982b32b-8d66-4487-b824-c140a231499c",
+      "name": "Pulma 2",
+      "mode": "peace",
+      "placements": [
+        {
+          "instId": "4d8051ae-daae-4425-b99f-c5fb5cb5b53a",
+          "pieceId": "island1",
+          "rot": 0,
+          "x": 0,
+          "y": 1
+        },
+        {
+          "instId": "fac43c4e-b5a7-48f6-93d5-1beb6851eaf8",
+          "pieceId": "island2",
+          "rot": 1,
+          "x": 3,
+          "y": 1
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "side": "navy",
+          "x": 1,
+          "y": 4
+        }
+      ]
+    },
+    {
+      "id": "6f11a4ad-efe4-42bc-8812-0fa86d602e79",
+      "name": "Pulma 14",
+      "mode": "peace",
+      "placements": [
+        {
+          "instId": "7ad4fa22-c89c-4b4a-9fd3-9b316240d25a",
+          "pieceId": "island1",
+          "rot": 1,
+          "x": 3,
+          "y": 1
+        },
+        {
+          "instId": "39093147-8b41-4bdf-b74a-eeb369d4041f",
+          "pieceId": "island2",
+          "rot": 1,
+          "x": 3,
+          "y": 3
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 0,
+          "y": 1
+        },
+        {
+          "side": "pirate",
+          "x": 1,
+          "y": 3
+        }
+      ]
+    },
+    {
+      "id": "fd2a3171-68df-4fc4-8be0-7776d27980f6",
+      "name": "Pulma 11",
+      "mode": "peace",
+      "placements": [
+        {
+          "instId": "a742b339-56d6-4a95-a3d5-fca2813754d0",
+          "pieceId": "island1",
+          "rot": 0,
+          "x": 3,
+          "y": 4
+        },
+        {
+          "instId": "9707a98f-dc99-4f72-8d7f-e3681335380c",
+          "pieceId": "island2",
+          "rot": 2,
+          "x": 0,
+          "y": 3
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "side": "navy",
+          "x": 3,
+          "y": 1
+        }
+      ]
+    },
+    {
+      "id": "a9120393-755c-40f3-bb0d-7d28259825fd",
+      "name": "Pulma 12",
+      "mode": "peace",
+      "placements": [
+        {
+          "instId": "0d1736ef-d07a-4ac5-901b-185c8e16e40a",
+          "pieceId": "island2",
+          "rot": 0,
+          "x": 1,
+          "y": 0
+        },
+        {
+          "instId": "f0d81611-8093-471f-b5be-ba072fd5b62a",
+          "pieceId": "island1",
+          "rot": 1,
+          "x": 0,
+          "y": 2
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 2,
+          "y": 4
+        }
+      ]
+    },
+    {
+      "id": "d3c2ecc2-71df-43a4-bd8d-553bbb4726ff",
+      "name": "Pulma 13",
+      "mode": "peace",
+      "placements": [
+        {
+          "instId": "d28cfffd-ab32-4d44-82c0-26963d7963db",
+          "pieceId": "island1",
+          "rot": 0,
+          "x": 1,
+          "y": 3
+        },
+        {
+          "instId": "34e71ac8-9ca4-44d4-bd16-f951fdd5008f",
+          "pieceId": "island2",
+          "rot": 0,
+          "x": 2,
+          "y": 2
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 2,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "id": "dfd9832e-0b47-46ed-bbdd-5b62861e5abe",
+      "name": "Pulma 14",
+      "mode": "peace",
+      "placements": [
+        {
+          "instId": "98b65a6e-5487-4e9e-a20b-6ff27e37a4f1",
+          "pieceId": "island1",
+          "rot": 1,
+          "x": 2,
+          "y": 0
+        },
+        {
+          "instId": "8ed2e1bc-99cf-4318-97e8-d5918d61aa53",
+          "pieceId": "island2",
+          "rot": 2,
+          "x": 0,
+          "y": 1
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 4,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "id": "804ec730-e20e-46ea-95c4-a35ce3a390b4",
+      "name": "Pulma 15",
+      "mode": "peace",
+      "placements": [
+        {
+          "instId": "2d11445a-1d77-41ea-a360-0f6826ba0fd5",
+          "pieceId": "island1",
+          "rot": 1,
+          "x": 3,
+          "y": 2
+        },
+        {
+          "instId": "d7bdfc89-e6da-49f4-9e97-a557817f7d24",
+          "pieceId": "island2",
+          "rot": 1,
+          "x": 3,
+          "y": 3
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 1,
+          "y": 3
+        }
+      ]
+    },
+    {
+      "id": "580b15f5-78f4-4b55-ad4a-b04d62cfa74c",
+      "name": "Pulma 16",
+      "mode": "peace",
+      "placements": [
+        {
+          "instId": "63874089-4958-4f33-a81f-4a1a20099fcf",
+          "pieceId": "island1",
+          "rot": 1,
+          "x": 4,
+          "y": 2
+        },
+        {
+          "instId": "0a2f8152-f23b-45b9-9de5-ab1833c4f841",
+          "pieceId": "island2",
+          "rot": 2,
+          "x": 0,
+          "y": 2
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 1,
+          "y": 1
+        }
+      ]
+    },
+    {
+      "id": "e75db948-9b6a-4661-ac89-e40d9ab0be05",
+      "name": "Pulma 17",
+      "mode": "peace",
+      "placements": [
+        {
+          "instId": "e1979a49-4949-4136-843a-cd3c4d8a3426",
+          "pieceId": "island1",
+          "rot": 1,
+          "x": 1,
+          "y": 1
+        },
+        {
+          "instId": "5f3c6e35-bc10-44b4-9a3b-65cf3eb3747c",
+          "pieceId": "island2",
+          "rot": 3,
+          "x": 2,
+          "y": 0
+        }
+      ],
+      "shipHints": []
+    },
+    {
+      "id": "5ec00f5d-c21f-43e9-b98e-c3c5ebc3c0fa",
+      "name": "Pulma 18",
+      "mode": "peace",
+      "placements": [
+        {
+          "instId": "8dc55bdd-b953-49f6-bd3a-eb673f5dc3d7",
+          "pieceId": "island2",
+          "rot": 3,
+          "x": 2,
+          "y": 0
+        },
+        {
+          "instId": "8b0b83ed-056a-43f0-8c7e-fda45b450d85",
+          "pieceId": "island1",
+          "rot": 1,
+          "x": 0,
+          "y": 2
+        }
+      ],
+      "shipHints": []
+    },
+    {
+      "id": "bd5f92ea-f6c1-4397-9128-44fa0d0ccf6b",
+      "name": "Pulma 19",
+      "mode": "peace",
+      "placements": [
+        {
+          "instId": "531ffd33-7edb-443e-a325-f77acdb862a9",
+          "pieceId": "island2",
+          "rot": 1,
+          "x": 2,
+          "y": 2
+        },
+        {
+          "instId": "73f1e6fd-a404-487e-b8fb-79237380077f",
+          "pieceId": "island1",
+          "rot": 1,
+          "x": 0,
+          "y": 3
+        }
+      ],
+      "shipHints": []
+    },
+    {
+      "id": "13caac5e-2f97-448c-b83c-ecb1174d22d7",
+      "name": "Pulma 20",
+      "mode": "peace",
+      "placements": [
+        {
+          "instId": "7c79dbfc-5b80-436c-af93-0c373b734971",
+          "pieceId": "island1",
+          "rot": 3,
+          "x": 2,
+          "y": 0
+        },
+        {
+          "instId": "69b4d42f-6a99-4a22-aedc-5a7eeb8b1ccf",
+          "pieceId": "island2",
+          "rot": 0,
+          "x": 3,
+          "y": 3
+        }
+      ],
+      "shipHints": []
+    },
+    {
+      "id": "f3a6f66f-9947-438f-9dbd-f012d65098e0",
+      "name": "Pulma 21",
+      "mode": "piratesWin",
+      "placements": [
+        {
+          "instId": "2235bf65-2458-4ed7-8c83-d509b8b29e76",
+          "pieceId": "island1",
+          "rot": 1,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "instId": "96e7df43-2447-425a-8b76-9175a8092c20",
+          "pieceId": "island2",
+          "rot": 2,
+          "x": 1,
+          "y": 0
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "pirate",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "side": "pirate",
+          "x": 2,
+          "y": 2
+        },
+        {
+          "side": "navy",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "side": "navy",
+          "x": 1,
+          "y": 2
+        },
+        {
+          "side": "navy",
+          "x": 1,
+          "y": 4
+        },
+        {
+          "side": "navy",
+          "x": 4,
+          "y": 4
+        },
+        {
+          "side": "pirate",
+          "x": 3,
+          "y": 4
+        }
+      ]
+    },
+    {
+      "id": "d9339040-8b68-4f34-93cb-ad2cf0e7b812",
+      "name": "Pulma 22",
+      "mode": "piratesWin",
+      "placements": [
+        {
+          "instId": "f8f766db-bff8-440b-8fd6-cd8d10b9207a",
+          "pieceId": "island2",
+          "rot": 2,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "instId": "1f17b367-42bc-4cba-9800-5afd8a4f7266",
+          "pieceId": "island1",
+          "rot": 1,
+          "x": 4,
+          "y": 3
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "pirate",
+          "x": 0,
+          "y": 3
+        },
+        {
+          "side": "pirate",
+          "x": 4,
+          "y": 2
+        },
+        {
+          "side": "navy",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "side": "navy",
+          "x": 0,
+          "y": 4
+        }
+      ]
+    },
+    {
+      "id": "fb748dbb-8382-4d50-a08d-32d4b491d808",
+      "name": "Pulma 23",
+      "mode": "piratesWin",
+      "placements": [
+        {
+          "instId": "ed9ab57a-90c5-46e5-b172-930f6fdbaed6",
+          "pieceId": "island2",
+          "rot": 3,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "instId": "ce977569-e0a3-4b4e-b392-3c430b82c400",
+          "pieceId": "island1",
+          "rot": 1,
+          "x": 3,
+          "y": 2
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "side": "navy",
+          "x": 0,
+          "y": 2
+        },
+        {
+          "side": "navy",
+          "x": 0,
+          "y": 4
+        },
+        {
+          "side": "navy",
+          "x": 4,
+          "y": 4
+        },
+        {
+          "side": "pirate",
+          "x": 2,
+          "y": 2
+        }
+      ]
+    },
+    {
+      "id": "4219aa03-6e5d-4543-b407-5871a41f00e6",
+      "name": "Pulma 24",
+      "mode": "piratesWin",
+      "placements": [
+        {
+          "instId": "740f9ebf-f47b-4cb5-8c5b-512bcbb5c44a",
+          "pieceId": "island2",
+          "rot": 0,
+          "x": 3,
+          "y": 0
+        },
+        {
+          "instId": "7ff382c7-6f85-4f59-a13c-3f157e005943",
+          "pieceId": "island1",
+          "rot": 1,
+          "x": 3,
+          "y": 1
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 2,
+          "y": 0
+        },
+        {
+          "side": "navy",
+          "x": 2,
+          "y": 4
+        },
+        {
+          "side": "pirate",
+          "x": 3,
+          "y": 3
+        },
+        {
+          "side": "pirate",
+          "x": 0,
+          "y": 3
+        }
+      ]
+    },
+    {
+      "id": "ee4fdfc7-23de-47d8-8ff7-648caaea4c41",
+      "name": "Pulma 25",
+      "mode": "piratesWin",
+      "placements": [
+        {
+          "instId": "5d979596-89ad-4bbd-b068-3a88e00a40ef",
+          "pieceId": "island1",
+          "rot": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "instId": "28e1861d-307c-413d-9a7e-3f08aaf4655a",
+          "pieceId": "island2",
+          "rot": 1,
+          "x": 3,
+          "y": 3
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "side": "pirate",
+          "x": 3,
+          "y": 2
+        },
+        {
+          "side": "pirate",
+          "x": 1,
+          "y": 3
+        }
+      ]
+    },
+    {
+      "id": "c3f03cf2-31a6-412e-932f-9c3afbd76c29",
+      "name": "Pulma 26",
+      "mode": "piratesWin",
+      "placements": [
+        {
+          "instId": "407f2bb7-50c0-4e95-99df-037bca98aa9d",
+          "pieceId": "island1",
+          "rot": 0,
+          "x": 1,
+          "y": 3
+        },
+        {
+          "instId": "316fd9d6-aa42-4117-bc6d-e8f979700d98",
+          "pieceId": "island2",
+          "rot": 0,
+          "x": 3,
+          "y": 0
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "side": "navy",
+          "x": 4,
+          "y": 3
+        },
+        {
+          "side": "pirate",
+          "x": 3,
+          "y": 3
+        },
+        {
+          "side": "pirate",
+          "x": 2,
+          "y": 2
+        }
+      ]
+    },
+    {
+      "id": "75454c3c-6101-4041-b0c0-41366885d77f",
+      "name": "Pulma 27",
+      "mode": "piratesWin",
+      "placements": [
+        {
+          "instId": "7428015c-e7ac-4042-9e90-f2d5fa5682f8",
+          "pieceId": "island2",
+          "rot": 1,
+          "x": 3,
+          "y": 3
+        },
+        {
+          "instId": "93f3ea1c-cdc7-4b21-86ee-da0869ee7ad8",
+          "pieceId": "island1",
+          "rot": 0,
+          "x": 0,
+          "y": 4
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "side": "navy",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "side": "navy",
+          "x": 0,
+          "y": 2
+        },
+        {
+          "side": "navy",
+          "x": 4,
+          "y": 2
+        }
+      ]
+    },
+    {
+      "id": "b28801ca-2a23-4541-8163-3b6a44876160",
+      "name": "Pulma 28",
+      "mode": "piratesWin",
+      "placements": [
+        {
+          "instId": "d4fe090b-99e1-409b-9d59-46877b23ce62",
+          "pieceId": "island2",
+          "rot": 3,
+          "x": 3,
+          "y": 1
+        },
+        {
+          "instId": "eb832dba-4fb4-4cb1-aa9d-3122f2083f7a",
+          "pieceId": "island1",
+          "rot": 0,
+          "x": 3,
+          "y": 0
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "side": "navy",
+          "x": 3,
+          "y": 4
+        },
+        {
+          "side": "pirate",
+          "x": 3,
+          "y": 3
+        }
+      ]
+    },
+    {
+      "id": "d201e22c-a79b-4938-88ce-82a60e6f184b",
+      "name": "Pulma 29",
+      "mode": "piratesWin",
+      "placements": [
+        {
+          "instId": "ef15133c-3f89-42b7-872a-6788e00f4227",
+          "pieceId": "island2",
+          "rot": 0,
+          "x": 3,
+          "y": 0
+        },
+        {
+          "instId": "58c37d3c-7f22-46a2-82ab-34a73c092723",
+          "pieceId": "island1",
+          "rot": 0,
+          "x": 1,
+          "y": 3
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 2,
+          "y": 0
+        },
+        {
+          "side": "pirate",
+          "x": 2,
+          "y": 1
+        }
+      ]
+    },
+    {
+      "id": "f16c7598-d136-4ae0-8611-5bab71659d3d",
+      "name": "Pulma 30",
+      "mode": "piratesWin",
+      "placements": [
+        {
+          "instId": "fb3095a8-ce71-418f-8328-fb869ba204b9",
+          "pieceId": "island1",
+          "rot": 1,
+          "x": 1,
+          "y": 2
+        },
+        {
+          "instId": "36a1c508-2a9c-43a3-8e10-c7c3208842f9",
+          "pieceId": "island2",
+          "rot": 2,
+          "x": 0,
+          "y": 3
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 0,
+          "y": 1
+        },
+        {
+          "side": "navy",
+          "x": 4,
+          "y": 3
+        },
+        {
+          "side": "pirate",
+          "x": 1,
+          "y": 1
+        }
+      ]
+    },
+    {
+      "id": "f5b980d9-55ab-4429-881f-1c380b21e9cc",
+      "name": "Pulma 31",
+      "mode": "piratesWin",
+      "placements": [
+        {
+          "instId": "e291e129-44f9-4098-b15b-bfd9cca15b66",
+          "pieceId": "island1",
+          "rot": 1,
+          "x": 2,
+          "y": 0
+        },
+        {
+          "instId": "9cdb6392-2c96-4ada-bde8-8abde2635cf2",
+          "pieceId": "island2",
+          "rot": 3,
+          "x": 3,
+          "y": 0
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 1,
+          "y": 0
+        },
+        {
+          "side": "pirate",
+          "x": 1,
+          "y": 2
+        }
+      ]
+    },
+    {
+      "id": "51198745-6d6f-4fe9-a7f1-fe4cd3100971",
+      "name": "Pulma 32",
+      "mode": "piratesWin",
+      "placements": [
+        {
+          "instId": "ecf340ca-a071-4136-8e3a-4a23d022c31b",
+          "pieceId": "island1",
+          "rot": 1,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "instId": "eeba3230-9f7c-45e6-862e-d8106f2e0281",
+          "pieceId": "island2",
+          "rot": 2,
+          "x": 1,
+          "y": 2
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 0,
+          "y": 3
+        },
+        {
+          "side": "pirate",
+          "x": 2,
+          "y": 2
+        }
+      ]
+    },
+    {
+      "id": "d8504f79-6878-44dc-8818-dd2ceb2a3d51",
+      "name": "Pulma 33",
+      "mode": "piratesWin",
+      "placements": [
+        {
+          "instId": "0a71ae7e-79cb-4280-a7de-7d6fe9afd4ae",
+          "pieceId": "island2",
+          "rot": 0,
+          "x": 3,
+          "y": 0
+        },
+        {
+          "instId": "5e702df1-660c-474b-a9e2-dfc2ae063ca3",
+          "pieceId": "island1",
+          "rot": 0,
+          "x": 2,
+          "y": 4
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 2,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "id": "92fdcb16-ba87-4c23-b867-81e0114bb495",
+      "name": "Pulma 34",
+      "mode": "piratesWin",
+      "placements": [
+        {
+          "instId": "72895208-3633-4ee5-849d-703d81787e66",
+          "pieceId": "island2",
+          "rot": 2,
+          "x": 2,
+          "y": 0
+        },
+        {
+          "instId": "1d3f566e-ee01-44c6-bfc6-d80f23ae8129",
+          "pieceId": "island1",
+          "rot": 0,
+          "x": 2,
+          "y": 4
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 1,
+          "y": 1
+        }
+      ]
+    },
+    {
+      "id": "bb506404-8d31-441e-a963-2da5a486f570",
+      "name": "Pulma 35",
+      "mode": "piratesWin",
+      "placements": [
+        {
+          "instId": "2b179427-9bd4-49a6-8580-c8da791ee8b1",
+          "pieceId": "island2",
+          "rot": 2,
+          "x": 0,
+          "y": 3
+        },
+        {
+          "instId": "9fa1402b-db9b-489d-9dc6-53f2120bfd8f",
+          "pieceId": "island1",
+          "rot": 0,
+          "x": 2,
+          "y": 4
+        }
+      ],
+      "shipHints": []
+    },
+    {
+      "id": "6cc074f8-3d3c-4d0f-ac74-816aaff9f7f0",
+      "name": "Pulma 36",
+      "mode": "piratesWin",
+      "placements": [
+        {
+          "instId": "37307230-851f-4fc7-b0f2-d491b444e7d6",
+          "pieceId": "island2",
+          "rot": 0,
+          "x": 3,
+          "y": 0
+        },
+        {
+          "instId": "0d255994-17e8-491f-ac60-5c3ed8bb21ce",
+          "pieceId": "island1",
+          "rot": 1,
+          "x": 0,
+          "y": 3
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 2,
+          "y": 2
+        }
+      ]
+    },
+    {
+      "id": "eb78dc48-5fe7-4b1b-8f2d-a625b51350a6",
+      "name": "Pulma 37",
+      "mode": "piratesWin",
+      "placements": [
+        {
+          "instId": "0c83a935-d82d-4470-8fe0-8af7141cdec5",
+          "pieceId": "island2",
+          "rot": 1,
+          "x": 0,
+          "y": 3
+        },
+        {
+          "instId": "e1a4ab1f-ae64-4799-8845-25a94f1a9eda",
+          "pieceId": "island1",
+          "rot": 1,
+          "x": 2,
+          "y": 3
+        }
+      ],
+      "shipHints": []
+    },
+    {
+      "id": "5c2aa4e7-83d6-411e-a9d0-bf9d7633c621",
+      "name": "Pulma 38",
+      "mode": "piratesWin",
+      "placements": [
+        {
+          "instId": "7044848d-e7aa-403e-aa66-6afd061dc097",
+          "pieceId": "island1",
+          "rot": 2,
+          "x": 1,
+          "y": 0
+        },
+        {
+          "instId": "7b27003f-f67e-4764-8c17-c10adcf91967",
+          "pieceId": "island2",
+          "rot": 2,
+          "x": 3,
+          "y": 3
+        }
+      ],
+      "shipHints": []
+    },
+    {
+      "id": "3e82670f-47dd-4dd2-8f62-c72755321241",
+      "name": "Pulma 39",
+      "mode": "piratesWin",
+      "placements": [
+        {
+          "instId": "d1eb4fb6-f66e-460a-b017-2929f3bdc879",
+          "pieceId": "island1",
+          "rot": 0,
+          "x": 3,
+          "y": 0
+        },
+        {
+          "instId": "742171d0-53c7-489b-b157-1ace3adf58f0",
+          "pieceId": "island2",
+          "rot": 0,
+          "x": 3,
+          "y": 1
+        }
+      ],
+      "shipHints": []
+    },
+    {
+      "id": "908b1e63-0960-4d97-8b26-36c2c5330255",
+      "name": "Pulma 40",
+      "mode": "piratesWin",
+      "placements": [
+        {
+          "instId": "3364d1ba-4ae9-4625-a548-d5fb63aa8e88",
+          "pieceId": "island2",
+          "rot": 3,
+          "x": 3,
+          "y": 2
+        },
+        {
+          "instId": "d11b00f2-a165-4335-a03f-b4b72813bebe",
+          "pieceId": "island1",
+          "rot": 1,
+          "x": 4,
+          "y": 3
+        }
+      ],
+      "shipHints": []
+    },
+    {
+      "id": "b199bf1a-7865-46a6-8759-e4146a7167ad",
+      "name": "Pulma 41",
+      "mode": "navyWin",
+      "placements": [
+        {
+          "instId": "dc788541-c62a-4994-8f17-b700eb96f391",
+          "pieceId": "island2",
+          "rot": 0,
+          "x": 1,
+          "y": 0
+        },
+        {
+          "instId": "92a2426a-3146-4aaf-bd37-4bb730615078",
+          "pieceId": "island1",
+          "rot": 0,
+          "x": 1,
+          "y": 2
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "pirate",
+          "x": 1,
+          "y": 1
+        },
+        {
+          "side": "pirate",
+          "x": 0,
+          "y": 4
+        },
+        {
+          "side": "pirate",
+          "x": 2,
+          "y": 3
+        },
+        {
+          "side": "navy",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "side": "navy",
+          "x": 4,
+          "y": 3
+        },
+        {
+          "side": "navy",
+          "x": 3,
+          "y": 4
+        },
+        {
+          "side": "navy",
+          "x": 1,
+          "y": 3
+        }
+      ]
+    },
+    {
+      "id": "74c6a16d-3982-4258-920a-c029e9bed96a",
+      "name": "Pulma 42",
+      "mode": "navyWin",
+      "placements": [
+        {
+          "instId": "c2711e1f-7e3d-4814-9aea-90ecf94e8b1b",
+          "pieceId": "island2",
+          "rot": 3,
+          "x": 2,
+          "y": 1
+        },
+        {
+          "instId": "f6682a75-f988-49da-b8fc-e8a030bf99e7",
+          "pieceId": "island1",
+          "rot": 0,
+          "x": 2,
+          "y": 4
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 0,
+          "y": 3
+        },
+        {
+          "side": "navy",
+          "x": 1,
+          "y": 3
+        },
+        {
+          "side": "navy",
+          "x": 3,
+          "y": 3
+        },
+        {
+          "side": "navy",
+          "x": 4,
+          "y": 3
+        }
+      ]
+    },
+    {
+      "id": "fd2d928b-e5fd-4bd0-a91a-4fc0cad00a7a",
+      "name": "Pulma 43",
+      "mode": "navyWin",
+      "placements": [
+        {
+          "instId": "d742f067-944e-490d-a0d1-bccf220644d4",
+          "pieceId": "island1",
+          "rot": 0,
+          "x": 1,
+          "y": 2
+        },
+        {
+          "instId": "5fbe530b-36f0-47d1-b48e-dcef5bb2fe48",
+          "pieceId": "island2",
+          "rot": 1,
+          "x": 1,
+          "y": 0
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 1,
+          "y": 0
+        },
+        {
+          "side": "navy",
+          "x": 3,
+          "y": 3
+        },
+        {
+          "side": "pirate",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "side": "pirate",
+          "x": 1,
+          "y": 3
+        }
+      ]
+    },
+    {
+      "id": "2084c9c8-079e-4932-9f5b-d9732476b738",
+      "name": "Pulma 44",
+      "mode": "navyWin",
+      "placements": [
+        {
+          "instId": "ff6bfb47-ee29-49c5-a302-21ecdf6b7818",
+          "pieceId": "island1",
+          "rot": 1,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "instId": "1f69ee26-2500-4bba-bb29-d863d09b833f",
+          "pieceId": "island2",
+          "rot": 0,
+          "x": 0,
+          "y": 2
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "pirate",
+          "x": 2,
+          "y": 4
+        },
+        {
+          "side": "pirate",
+          "x": 4,
+          "y": 3
+        },
+        {
+          "side": "pirate",
+          "x": 3,
+          "y": 1
+        }
+      ]
+    },
+    {
+      "id": "3b7c6725-8642-4147-81c1-5838905e2cfe",
+      "name": "Pulma 45",
+      "mode": "navyWin",
+      "placements": [
+        {
+          "instId": "1c556f47-cce3-4259-bcf7-853055514b28",
+          "pieceId": "island2",
+          "rot": 3,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "instId": "c784c195-28a0-45ed-b984-98f05f6a648f",
+          "pieceId": "island1",
+          "rot": 0,
+          "x": 1,
+          "y": 2
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 1,
+          "y": 1
+        },
+        {
+          "side": "navy",
+          "x": 3,
+          "y": 3
+        },
+        {
+          "side": "navy",
+          "x": 4,
+          "y": 4
+        }
+      ]
+    },
+    {
+      "id": "f0d59edb-042b-4343-abb5-be7ed255cdfa",
+      "name": "Pulma 46",
+      "mode": "navyWin",
+      "placements": [
+        {
+          "instId": "647e62f5-a0dd-4f35-9dd2-cc7d631eecce",
+          "pieceId": "island2",
+          "rot": 0,
+          "x": 2,
+          "y": 2
+        },
+        {
+          "instId": "d0ad2cf2-68f8-4a59-a827-acf33d7013f3",
+          "pieceId": "island1",
+          "rot": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 1,
+          "y": 3
+        },
+        {
+          "side": "pirate",
+          "x": 3,
+          "y": 1
+        }
+      ]
+    },
+    {
+      "id": "c7115d88-28c0-4380-a381-d318c868efee",
+      "name": "Pulma 47",
+      "mode": "navyWin",
+      "placements": [
+        {
+          "instId": "7ec95174-ffdd-45b4-ba5c-90ab72271ad2",
+          "pieceId": "island1",
+          "rot": 0,
+          "x": 1,
+          "y": 0
+        },
+        {
+          "instId": "f32304c7-2e9e-431f-a192-d85fff4598a2",
+          "pieceId": "island2",
+          "rot": 1,
+          "x": 1,
+          "y": 1
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "pirate",
+          "x": 4,
+          "y": 2
+        }
+      ]
+    },
+    {
+      "id": "ad5840f4-690e-415e-930a-945324637a3e",
+      "name": "Pulma 48",
+      "mode": "navyWin",
+      "placements": [
+        {
+          "instId": "fe4fa6b6-66da-49d3-97d3-bd8c2ebc3ca4",
+          "pieceId": "island2",
+          "rot": 0,
+          "x": 0,
+          "y": 2
+        },
+        {
+          "instId": "89067c25-06ff-4b57-a036-d6f11a23911c",
+          "pieceId": "island1",
+          "rot": 0,
+          "x": 2,
+          "y": 2
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 1,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "id": "ef250ab8-4dd2-444a-9c50-18a5d761ecdf",
+      "name": "Pulma 49",
+      "mode": "navyWin",
+      "placements": [
+        {
+          "instId": "8ae85d05-34cf-4260-be7f-dc97ae394ab6",
+          "pieceId": "island1",
+          "rot": 1,
+          "x": 0,
+          "y": 3
+        },
+        {
+          "instId": "49936532-35f7-495d-a3ae-523155b7ee77",
+          "pieceId": "island2",
+          "rot": 3,
+          "x": 1,
+          "y": 2
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 3,
+          "y": 3
+        }
+      ]
+    },
+    {
+      "id": "64ea58f5-4e2c-462f-a086-bcd0cdde9ef1",
+      "name": "Pulma 50",
+      "mode": "navyWin",
+      "placements": [
+        {
+          "instId": "eb4f2813-0e0e-460c-8a94-ea7effce079b",
+          "pieceId": "island2",
+          "rot": 3,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "instId": "c31bb906-6351-439a-ab68-2c60f5100522",
+          "pieceId": "island1",
+          "rot": 1,
+          "x": 2,
+          "y": 2
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "pirate",
+          "x": 3,
+          "y": 3
+        },
+        {
+          "side": "pirate",
+          "x": 1,
+          "y": 4
+        }
+      ]
+    },
+    {
+      "id": "ed462bc9-0245-4ec0-b536-b85962fe57a7",
+      "name": "Pulma 51",
+      "mode": "navyWin",
+      "placements": [
+        {
+          "instId": "a46f95f1-2971-4d91-8dc9-d7339e06c1b1",
+          "pieceId": "island1",
+          "rot": 0,
+          "x": 2,
+          "y": 0
+        },
+        {
+          "instId": "49e4f335-cfec-45fe-8060-e3eb4c65de1a",
+          "pieceId": "island2",
+          "rot": 0,
+          "x": 2,
+          "y": 2
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 0,
+          "y": 4
+        }
+      ]
+    },
+    {
+      "id": "075cc9b3-a079-4120-809f-d15238a6f63b",
+      "name": "Pulma 52",
+      "mode": "navyWin",
+      "placements": [
+        {
+          "instId": "a9a41d86-e596-47b4-9fdd-f90c51196545",
+          "pieceId": "island1",
+          "rot": 1,
+          "x": 2,
+          "y": 0
+        },
+        {
+          "instId": "3c18eeb6-d6da-49ae-812a-75ec05ba8858",
+          "pieceId": "island2",
+          "rot": 3,
+          "x": 0,
+          "y": 3
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 1,
+          "y": 4
+        }
+      ]
+    },
+    {
+      "id": "c342f6ed-a035-4f08-bb7b-efb59da1144b",
+      "name": "Pulma 53",
+      "mode": "navyWin",
+      "placements": [
+        {
+          "instId": "812f80fb-42f4-4f3b-9639-17ce9dcc2995",
+          "pieceId": "island1",
+          "rot": 1,
+          "x": 4,
+          "y": 2
+        },
+        {
+          "instId": "afee7ab0-dbc9-41cc-ae27-ac85d0bd6465",
+          "pieceId": "island2",
+          "rot": 2,
+          "x": 0,
+          "y": 3
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "side": "pirate",
+          "x": 2,
+          "y": 1
+        }
+      ]
+    },
+    {
+      "id": "4b94a529-fd34-4991-95b7-3074e2b084ef",
+      "name": "Pulma 54",
+      "mode": "navyWin",
+      "placements": [
+        {
+          "instId": "4aa73707-1519-4290-87d0-4db4a132adb6",
+          "pieceId": "island1",
+          "rot": 0,
+          "x": 1,
+          "y": 2
+        },
+        {
+          "instId": "fe632594-a2ef-4f1c-8bf7-0c5e2d535f1e",
+          "pieceId": "island2",
+          "rot": 1,
+          "x": 2,
+          "y": 2
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 1,
+          "y": 4
+        }
+      ]
+    },
+    {
+      "id": "d83c5ac5-4a8e-468f-8845-da595f220bb0",
+      "name": "Pulma 55",
+      "mode": "navyWin",
+      "placements": [
+        {
+          "instId": "bb3f082a-ce61-47f6-8d78-f2a240a67ffd",
+          "pieceId": "island2",
+          "rot": 3,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "instId": "1667fab8-fd06-4007-b44e-f5da7a089be4",
+          "pieceId": "island1",
+          "rot": 0,
+          "x": 2,
+          "y": 2
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 1,
+          "y": 3
+        },
+        {
+          "side": "navy",
+          "x": 3,
+          "y": 4
+        }
+      ]
+    },
+    {
+      "id": "69e00451-4ddd-4fc5-91b1-ae487ced0aa4",
+      "name": "Pulma 56",
+      "mode": "navyWin",
+      "placements": [
+        {
+          "instId": "11499ef1-0ad0-4c3f-ba85-7169c9b261b2",
+          "pieceId": "island2",
+          "rot": 3,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "instId": "23ac8e72-ea98-44b8-bc14-db259ae7bd65",
+          "pieceId": "island1",
+          "rot": 0,
+          "x": 0,
+          "y": 2
+        }
+      ],
+      "shipHints": []
+    },
+    {
+      "id": "dfcbff16-7f69-4c5d-b0ff-21fbd0fae402",
+      "name": "Pulma 57",
+      "mode": "navyWin",
+      "placements": [
+        {
+          "instId": "f16bd2aa-fdb5-4a54-807f-dbdb7d87baf3",
+          "pieceId": "island1",
+          "rot": 0,
+          "x": 0,
+          "y": 2
+        },
+        {
+          "instId": "8149c08d-75bf-4c2a-82c7-17fc311d93ad",
+          "pieceId": "island2",
+          "rot": 0,
+          "x": 2,
+          "y": 2
+        }
+      ],
+      "shipHints": []
+    },
+    {
+      "id": "d7d3d228-fd50-481b-a577-f2c93303018f",
+      "name": "Pulma 58",
+      "mode": "navyWin",
+      "placements": [
+        {
+          "instId": "8273d1ed-41c0-4693-bd2f-09654f146f58",
+          "pieceId": "island2",
+          "rot": 3,
+          "x": 1,
+          "y": 1
+        },
+        {
+          "instId": "f191c806-9375-40c8-842c-152534cb111a",
+          "pieceId": "island1",
+          "rot": 0,
+          "x": 2,
+          "y": 4
+        }
+      ],
+      "shipHints": []
+    },
+    {
+      "id": "5154a6d4-b771-4ca6-a873-cdbbdf3b5231",
+      "name": "Pulma 59",
+      "mode": "navyWin",
+      "placements": [
+        {
+          "instId": "0d391fb4-bec0-4937-92cb-630d683a9e5f",
+          "pieceId": "island2",
+          "rot": 0,
+          "x": 3,
+          "y": 0
+        },
+        {
+          "instId": "5149f1c9-13ac-4bba-92c6-9600a3655c88",
+          "pieceId": "island1",
+          "rot": 1,
+          "x": 4,
+          "y": 2
+        }
+      ],
+      "shipHints": []
+    },
+    {
+      "id": "e09719d6-8817-467d-a214-b5790b499132",
+      "name": "Pulma 60",
+      "mode": "navyWin",
+      "placements": [
+        {
+          "instId": "8d2a0be1-c990-46e4-b622-82e4fe44411a",
+          "pieceId": "island2",
+          "rot": 1,
+          "x": 1,
+          "y": 0
+        },
+        {
+          "instId": "9e5d625a-afe6-47bb-a3b2-1db72f6bdf6e",
+          "pieceId": "island1",
+          "rot": 1,
+          "x": 0,
+          "y": 3
+        }
+      ],
+      "shipHints": []
+    },
+    {
+      "id": "f81126a8-ae15-4821-8453-47473e9885a4",
+      "name": "Pulma 61",
+      "mode": "totalWar",
+      "placements": [
+        {
+          "instId": "ab354178-4af1-4f1b-bd4e-2dc90caf1173",
+          "pieceId": "island1",
+          "rot": 0,
+          "x": 2,
+          "y": 4
+        },
+        {
+          "instId": "b6e6c1f7-146e-4955-a309-3a6666117042",
+          "pieceId": "island2",
+          "rot": 1,
+          "x": 1,
+          "y": 2
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "side": "navy",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "side": "navy",
+          "x": 0,
+          "y": 3
+        },
+        {
+          "side": "navy",
+          "x": 4,
+          "y": 4
+        },
+        {
+          "side": "pirate",
+          "x": 2,
+          "y": 0
+        },
+        {
+          "side": "pirate",
+          "x": 4,
+          "y": 2
+        },
+        {
+          "side": "pirate",
+          "x": 0,
+          "y": 1
+        }
+      ]
+    },
+    {
+      "id": "1a17a3ae-d466-4a27-ae76-0ca28b85cfbd",
+      "name": "Pulma 62",
+      "mode": "totalWar",
+      "placements": [
+        {
+          "instId": "ac6d03b0-61d2-4848-9e9e-d2c20ca9dc5c",
+          "pieceId": "island2",
+          "rot": 3,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "instId": "e982ff0d-d1bc-48ad-bef4-6935bdc79abc",
+          "pieceId": "island1",
+          "rot": 1,
+          "x": 4,
+          "y": 1
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "side": "navy",
+          "x": 3,
+          "y": 2
+        },
+        {
+          "side": "pirate",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "side": "pirate",
+          "x": 2,
+          "y": 2
+        }
+      ]
+    },
+    {
+      "id": "407be90e-fd48-4822-a3d9-8992724cc552",
+      "name": "Pulma 63",
+      "mode": "totalWar",
+      "placements": [
+        {
+          "instId": "6ab49901-276e-449d-bf82-6b4d966f6dc5",
+          "pieceId": "island2",
+          "rot": 0,
+          "x": 1,
+          "y": 1
+        },
+        {
+          "instId": "389ac9ed-5649-4ef0-889a-99e5b31e3da0",
+          "pieceId": "island1",
+          "rot": 0,
+          "x": 0,
+          "y": 4
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 2,
+          "y": 4
+        },
+        {
+          "side": "navy",
+          "x": 0,
+          "y": 2
+        },
+        {
+          "side": "pirate",
+          "x": 2,
+          "y": 0
+        },
+        {
+          "side": "pirate",
+          "x": 4,
+          "y": 2
+        }
+      ]
+    },
+    {
+      "id": "ac08f2de-11c3-43be-afda-cb0f295fec74",
+      "name": "Pulma 64",
+      "mode": "totalWar",
+      "placements": [
+        {
+          "instId": "a8dfc1b5-53d2-4177-977d-510219b62804",
+          "pieceId": "island1",
+          "rot": 1,
+          "x": 1,
+          "y": 0
+        },
+        {
+          "instId": "49158a4e-b85f-487d-85bc-5092b6519544",
+          "pieceId": "island2",
+          "rot": 1,
+          "x": 0,
+          "y": 3
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "side": "navy",
+          "x": 3,
+          "y": 2
+        }
+      ]
+    },
+    {
+      "id": "3fbc8891-90b2-4cfd-9e00-96b3ca25cf0e",
+      "name": "Pulma 65",
+      "mode": "totalWar",
+      "placements": [
+        {
+          "instId": "2d949ae9-1293-4872-b730-321dc3bf3731",
+          "pieceId": "island1",
+          "rot": 0,
+          "x": 2,
+          "y": 0
+        },
+        {
+          "instId": "8ce65053-e9b2-4b2b-a475-1c9ad5d78a25",
+          "pieceId": "island2",
+          "rot": 3,
+          "x": 3,
+          "y": 2
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "pirate",
+          "x": 2,
+          "y": 1
+        },
+        {
+          "side": "pirate",
+          "x": 1,
+          "y": 3
+        }
+      ]
+    },
+    {
+      "id": "a1fcdbea-164f-42ed-8b97-bb87bce19a99",
+      "name": "Pulma 66",
+      "mode": "totalWar",
+      "placements": [
+        {
+          "instId": "b723c72e-ac83-4686-bb00-3a24a0832c50",
+          "pieceId": "island2",
+          "rot": 2,
+          "x": 1,
+          "y": 0
+        },
+        {
+          "instId": "d40b7e51-577f-4e24-a147-1dafa0597225",
+          "pieceId": "island1",
+          "rot": 1,
+          "x": 4,
+          "y": 0
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 4,
+          "y": 3
+        },
+        {
+          "side": "navy",
+          "x": 0,
+          "y": 3
+        }
+      ]
+    },
+    {
+      "id": "c8364a81-4d20-416c-937e-cc7c68d3a9f7",
+      "name": "Pulma 67",
+      "mode": "totalWar",
+      "placements": [
+        {
+          "instId": "1fad8ed9-6dbe-4f9b-9228-dbc614464ecb",
+          "pieceId": "island2",
+          "rot": 3,
+          "x": 0,
+          "y": 2
+        },
+        {
+          "instId": "ab8f00dd-cd3e-46d4-b9c3-5714248e9adc",
+          "pieceId": "island1",
+          "rot": 1,
+          "x": 4,
+          "y": 0
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "pirate",
+          "x": 2,
+          "y": 2
+        },
+        {
+          "side": "navy",
+          "x": 4,
+          "y": 2
+        }
+      ]
+    },
+    {
+      "id": "d66eeae3-824b-485c-99a8-c198d03424ad",
+      "name": "Pulma 68",
+      "mode": "totalWar",
+      "placements": [
+        {
+          "instId": "63cdea0c-8307-4d29-aa2c-c289da42d29a",
+          "pieceId": "island1",
+          "rot": 1,
+          "x": 0,
+          "y": 2
+        },
+        {
+          "instId": "d1298b3e-3d06-4482-87b3-f11f9797c737",
+          "pieceId": "island2",
+          "rot": 1,
+          "x": 2,
+          "y": 3
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 2,
+          "y": 2
+        },
+        {
+          "side": "navy",
+          "x": 3,
+          "y": 1
+        }
+      ]
+    },
+    {
+      "id": "2794b1a7-8a76-4139-bbff-2746567ab24e",
+      "name": "Pulma 69",
+      "mode": "totalWar",
+      "placements": [
+        {
+          "instId": "8d0d9805-c25c-43cf-b9ea-690f6316b092",
+          "pieceId": "island1",
+          "rot": 1,
+          "x": 0,
+          "y": 3
+        },
+        {
+          "instId": "161f1631-b398-4215-802c-58894699b041",
+          "pieceId": "island2",
+          "rot": 1,
+          "x": 3,
+          "y": 1
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 4,
+          "y": 4
+        },
+        {
+          "side": "navy",
+          "x": 2,
+          "y": 1
+        }
+      ]
+    },
+    {
+      "id": "585bdc5f-6293-4427-8c76-b1a0b2708626",
+      "name": "Pulma 70",
+      "mode": "totalWar",
+      "placements": [
+        {
+          "instId": "d89035d1-b40e-4ff2-b55d-5485e81a1c8b",
+          "pieceId": "island2",
+          "rot": 0,
+          "x": 3,
+          "y": 3
+        },
+        {
+          "instId": "bff08ae8-9f3d-46f5-a6fc-015406571013",
+          "pieceId": "island1",
+          "rot": 0,
+          "x": 2,
+          "y": 4
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "pirate",
+          "x": 1,
+          "y": 2
+        },
+        {
+          "side": "navy",
+          "x": 3,
+          "y": 2
+        }
+      ]
+    },
+    {
+      "id": "ef863a62-9c56-4bfd-bde6-11ed12f8f118",
+      "name": "Pulma 71",
+      "mode": "totalWar",
+      "placements": [
+        {
+          "instId": "7d690d5b-1e35-42d0-ab3f-a922261fbddd",
+          "pieceId": "island1",
+          "rot": 1,
+          "x": 0,
+          "y": 3
+        },
+        {
+          "instId": "83589cfc-4a1c-4545-91da-3bd99000f55c",
+          "pieceId": "island2",
+          "rot": 1,
+          "x": 3,
+          "y": 0
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "side": "navy",
+          "x": 1,
+          "y": 3
+        }
+      ]
+    },
+    {
+      "id": "f090cc79-0e49-4d91-b2b0-cd67460261a4",
+      "name": "Pulma 72",
+      "mode": "totalWar",
+      "placements": [
+        {
+          "instId": "ffcc60c5-b125-4f5f-8a6b-b094b7e6e4a4",
+          "pieceId": "island1",
+          "rot": 1,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "instId": "d3f3110a-41f0-4b3c-92ae-dfd809e8bbd8",
+          "pieceId": "island2",
+          "rot": 0,
+          "x": 3,
+          "y": 0
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 2,
+          "y": 0
+        },
+        {
+          "side": "navy",
+          "x": 3,
+          "y": 4
+        }
+      ]
+    },
+    {
+      "id": "4e7cef74-51ab-4142-9cbf-2864ae387f44",
+      "name": "Pulma 73",
+      "mode": "totalWar",
+      "placements": [
+        {
+          "instId": "2cdec11b-63f5-49a8-b509-71f572ef4bcf",
+          "pieceId": "island1",
+          "rot": 1,
+          "x": 3,
+          "y": 2
+        },
+        {
+          "instId": "4c357faf-cc5d-4562-ad6a-42e213093a90",
+          "pieceId": "island2",
+          "rot": 0,
+          "x": 3,
+          "y": 1
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "pirate",
+          "x": 1,
+          "y": 3
+        }
+      ]
+    },
+    {
+      "id": "02c4fa00-3abc-4b85-8dac-6a87ccba3c46",
+      "name": "Pulma 74",
+      "mode": "totalWar",
+      "placements": [
+        {
+          "instId": "1cbff125-0652-4d9f-8e06-a69edb39a2b5",
+          "pieceId": "island1",
+          "rot": 0,
+          "x": 2,
+          "y": 1
+        },
+        {
+          "instId": "d1815883-4b97-4f94-9c63-c423a120ff75",
+          "pieceId": "island2",
+          "rot": 1,
+          "x": 3,
+          "y": 3
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 1,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "id": "cab2858f-f8e5-49c9-bafc-802a29a7833b",
+      "name": "Pulma 75",
+      "mode": "totalWar",
+      "placements": [
+        {
+          "instId": "d159fa0a-197e-4385-9b9e-6f6554bae824",
+          "pieceId": "island2",
+          "rot": 0,
+          "x": 2,
+          "y": 2
+        },
+        {
+          "instId": "9827814a-0135-42ff-b1c1-fe2708f445d1",
+          "pieceId": "island1",
+          "rot": 1,
+          "x": 4,
+          "y": 1
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 3,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "id": "9bd4d3ed-57d0-46b6-9a7d-b334c3370bb5",
+      "name": "Pulma 76",
+      "mode": "totalWar",
+      "placements": [
+        {
+          "instId": "43ac5b01-d6cc-4853-96d1-0b2c98dbe110",
+          "pieceId": "island1",
+          "rot": 0,
+          "x": 2,
+          "y": 0
+        },
+        {
+          "instId": "4d5c42cb-cdcb-43de-a300-a911830f54b8",
+          "pieceId": "island2",
+          "rot": 1,
+          "x": 3,
+          "y": 0
+        }
+      ],
+      "shipHints": [
+        {
+          "side": "navy",
+          "x": 1,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "id": "e3dcec4c-dc7b-440b-ae0c-bbc4aa04c305",
+      "name": "Pulma 77",
+      "mode": "totalWar",
+      "placements": [
+        {
+          "instId": "6b91a406-0a5f-49e7-9d64-59f33ecd866a",
+          "pieceId": "island2",
+          "rot": 3,
+          "x": 3,
+          "y": 1
+        },
+        {
+          "instId": "1e213998-4ef9-47bf-864c-05928f23601c",
+          "pieceId": "island1",
+          "rot": 0,
+          "x": 3,
+          "y": 4
+        }
+      ],
+      "shipHints": []
+    },
+    {
+      "id": "90fe2f1a-8d9b-4cc2-ab47-e1efdab708db",
+      "name": "Pulma 78",
+      "mode": "totalWar",
+      "placements": [
+        {
+          "instId": "e6d7e0b3-9b0c-40ec-82d0-f23f02e2069d",
+          "pieceId": "island1",
+          "rot": 2,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "instId": "5023c243-e7a8-46f9-ba7a-a06f99a50e5d",
+          "pieceId": "island2",
+          "rot": 0,
+          "x": 3,
+          "y": 0
+        }
+      ],
+      "shipHints": []
+    },
+    {
+      "id": "6aa983f4-2477-4120-8a22-ffff533f50c8",
+      "name": "Pulma 79",
+      "mode": "totalWar",
+      "placements": [
+        {
+          "instId": "cbb52109-3c35-43e2-91ba-8b1dfabfdccd",
+          "pieceId": "island2",
+          "rot": 1,
+          "x": 3,
+          "y": 0
+        },
+        {
+          "instId": "92b8a6d0-0d5f-4a9d-a8c0-5ba7eeb50d46",
+          "pieceId": "island1",
+          "rot": 1,
+          "x": 4,
+          "y": 2
+        }
+      ],
+      "shipHints": []
+    },
+    {
+      "id": "4b95524a-7ddd-484c-b499-aab746a3593e",
+      "name": "Pulma 80",
+      "mode": "totalWar",
+      "placements": [
+        {
+          "instId": "6c80af27-d11a-46aa-8006-0ee520ba8aeb",
+          "pieceId": "island2",
+          "rot": 3,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "instId": "f7bab565-adb7-4349-935f-1c3d3bb97a0b",
+          "pieceId": "island1",
+          "rot": 0,
+          "x": 1,
+          "y": 4
+        }
+      ],
+      "shipHints": []
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- Shadow -->
+  <ellipse cx="52" cy="54" rx="22" ry="32" fill="rgba(0,0,0,0.3)"/>
+
+  <!-- Hull -->
+  <path d="M50 8 C62 12 70 24 72 40 L72 68 C72 76 62 84 50 86 C38 84 28 76 28 68 L28 40 C30 24 38 12 50 8 Z"
+        fill="#5C3317" stroke="#3a1f0a" stroke-width="1.5"/>
+
+  <!-- Deck planks -->
+  <line x1="50" y1="10" x2="50" y2="84" stroke="#7a4a22" stroke-width="0.8" stroke-dasharray="4,2"/>
+  <line x1="42" y1="15" x2="38" y2="78" stroke="#7a4a22" stroke-width="0.6" stroke-dasharray="3,3"/>
+  <line x1="58" y1="15" x2="62" y2="78" stroke="#7a4a22" stroke-width="0.6" stroke-dasharray="3,3"/>
+
+  <!-- Mast -->
+  <circle cx="50" cy="47" r="4" fill="#3a1f0a" stroke="#2a0f00" stroke-width="1"/>
+  <circle cx="50" cy="47" r="2" fill="#8B6914"/>
+  <circle cx="50" cy="47" r="5" fill="none" stroke="#8B6914" stroke-width="1.2"/>
+
+  <!-- Single large sail with skull and crossbones -->
+  <rect x="32" y="33" width="36" height="26" rx="3" fill="#1a1a1a" stroke="#000" stroke-width="1.2"/>
+  <!-- Skull -->
+  <circle cx="50" cy="42" r="6" fill="white"/>
+  <circle cx="47.5" cy="41" r="1.5" fill="#1a1a1a"/>
+  <circle cx="52.5" cy="41" r="1.5" fill="#1a1a1a"/>
+  <path d="M49.5 43 L50.5 43 L50 44.5 Z" fill="#1a1a1a"/>
+  <rect x="47" y="45.5" width="2" height="2" rx="0.3" fill="white" stroke="#1a1a1a" stroke-width="0.3"/>
+  <rect x="49.3" y="45.5" width="1.4" height="2" rx="0.3" fill="white" stroke="#1a1a1a" stroke-width="0.3"/>
+  <rect x="51" y="45.5" width="2" height="2" rx="0.3" fill="white" stroke="#1a1a1a" stroke-width="0.3"/>
+  <path d="M44 45 Q50 48.5 56 45" fill="none" stroke="white" stroke-width="0.8"/>
+  <!-- Crossbones -->
+  <line x1="42" y1="52" x2="58" y2="56" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="58" y1="52" x2="42" y2="56" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="42" cy="52" r="2" fill="white"/>
+  <circle cx="58" cy="52" r="2" fill="white"/>
+  <circle cx="42" cy="56" r="2" fill="white"/>
+  <circle cx="58" cy="56" r="2" fill="white"/>
+
+  <!-- LEFT cannons -->
+  <rect x="16" y="32" width="14" height="6" rx="3" fill="#444" stroke="#222" stroke-width="1"/>
+  <rect x="14" y="32.5" width="4" height="5" rx="1.5" fill="#333"/>
+  <rect x="16" y="45" width="14" height="6" rx="3" fill="#444" stroke="#222" stroke-width="1"/>
+  <rect x="14" y="45.5" width="4" height="5" rx="1.5" fill="#333"/>
+  <rect x="16" y="58" width="14" height="6" rx="3" fill="#444" stroke="#222" stroke-width="1"/>
+  <rect x="14" y="58.5" width="4" height="5" rx="1.5" fill="#333"/>
+
+  <!-- RIGHT cannons -->
+  <rect x="70" y="32" width="14" height="6" rx="3" fill="#444" stroke="#222" stroke-width="1"/>
+  <rect x="82" y="32.5" width="4" height="5" rx="1.5" fill="#333"/>
+  <rect x="70" y="45" width="14" height="6" rx="3" fill="#444" stroke="#222" stroke-width="1"/>
+  <rect x="82" y="45.5" width="4" height="5" rx="1.5" fill="#333"/>
+  <rect x="70" y="58" width="14" height="6" rx="3" fill="#444" stroke="#222" stroke-width="1"/>
+  <rect x="82" y="58.5" width="4" height="5" rx="1.5" fill="#333"/>
+
+  <!-- Cannon ports -->
+  <rect x="27" y="33" width="5" height="4" rx="1" fill="#2a0f00"/>
+  <rect x="27" y="46" width="5" height="4" rx="1" fill="#2a0f00"/>
+  <rect x="27" y="59" width="5" height="4" rx="1" fill="#2a0f00"/>
+  <rect x="68" y="33" width="5" height="4" rx="1" fill="#2a0f00"/>
+  <rect x="68" y="46" width="5" height="4" rx="1" fill="#2a0f00"/>
+  <rect x="68" y="59" width="5" height="4" rx="1" fill="#2a0f00"/>
+
+  <!-- Bow & stern -->
+  <path d="M46 8 Q50 4 54 8" fill="none" stroke="#8B6914" stroke-width="1.5"/>
+  <path d="M38 84 Q50 90 62 84" fill="none" stroke="#8B6914" stroke-width="1.5"/>
+
+  <!-- Hull outline -->
+  <path d="M50 8 C62 12 70 24 72 40 L72 68 C72 76 62 84 50 86 C38 84 28 76 28 68 L28 40 C30 24 38 12 50 8 Z"
+        fill="none" stroke="#1a0800" stroke-width="1.5"/>
+</svg>

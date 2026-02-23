@@ -1,0 +1,1242 @@
+<!doctype html>
+<html lang="fi">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+<title>Pirates Crossfire</title>
+  <!-- PWA perus -->
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#0b1533"> <!-- Android/Chrome -->
+  <meta name="color-scheme" content="dark light">
+
+  <!-- iOS PWA -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="RoadBlock">
+
+  <!-- Icons -->
+  <link rel="icon" href="icon192.png">
+  <link rel="apple-touch-icon" href="icon192.png">
+<style>
+:root{
+  --bg:#0b1533;
+  --ink:#eaf0ff;
+  --muted:#9fb4ff;
+  --stroke:rgba(255,255,255,.15);
+
+  --water:#2f86ff;
+  --land:#6a6a6a;
+
+  --cell:64px;
+  --gap:6px;
+
+  --palW:420px;
+  --appH: 100vh;
+}
+
+*{box-sizing:border-box}
+
+/* --- NO SCROLL + NO SELECTION + NO TOUCH ZOOM BEHAVIOR --- */
+html, body{
+  height:100%;
+  overflow:hidden;
+  -webkit-text-size-adjust: 100%;
+}
+body{
+  margin:0;
+  font-family:system-ui,Segoe UI,Arial;
+  color:var(--ink);
+  background:
+    radial-gradient(1200px 600px at 50% -20%, rgba(93,120,255,.25), transparent 55%),
+    radial-gradient(900px 600px at 20% 0%, rgba(255,80,180,.14), transparent 50%),
+    var(--bg);
+
+  -webkit-user-select:none;
+  user-select:none;
+  -webkit-touch-callout:none;
+
+  touch-action: manipulation;
+}
+
+button, select, .cell, .piece, .board, .wrap, header{
+  -webkit-user-select:none;
+  user-select:none;
+  -webkit-touch-callout:none;
+}
+
+/* ---------- header ---------- */
+header{
+  padding:10px 12px;
+  border-bottom:1px solid var(--stroke);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  flex:0 0 auto;
+}
+
+.hLeft{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:0;
+}
+
+h1{
+  margin:0;
+  font-size:16px;
+  display:flex;
+  gap:10px;
+  align-items:baseline;
+  white-space:nowrap;
+}
+#date{ font-size:12px; color:var(--muted); font-weight:650; }
+
+.row{ display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+
+button, select{
+  background: rgba(255,255,255,.06);
+  border:1px solid var(--stroke);
+  color:var(--ink);
+  padding:7px 10px;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:850;
+}
+button:hover{ background: rgba(255,255,255,.09); }
+button:active{ transform: translateY(1px); }
+
+/* ---------- main wrap ---------- */
+.wrap{
+  max-width:1100px;
+  margin:0 auto;
+  padding:10px;
+  display:grid;
+  grid-template-columns: 1fr var(--palW);
+  gap:10px;
+  align-items:stretch;
+  height: var(--appH);
+}
+
+/* ---------- cards ---------- */
+.card{
+  background: rgba(18,32,85,.75);
+  border:1px solid var(--stroke);
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow: 0 12px 32px rgba(0,0,0,.35);
+  display:flex;
+  flex-direction:column;
+  min-height:0;
+}
+
+.hd{
+  padding:8px 10px;
+  border-bottom:1px solid var(--stroke);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  font-weight:900;
+  flex:0 0 auto;
+}
+
+.bd{
+  padding:10px;
+  flex:1 1 auto;
+  min-height:0;
+}
+
+.boardCardBody{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:0;
+}
+
+/* ---------- board ---------- */
+.board{
+  display:grid;
+  grid-template-columns:repeat(5,var(--cell));
+  grid-template-rows:repeat(5,var(--cell));
+  gap:var(--gap);
+  padding:10px;
+  background: rgba(255,255,255,.04);
+  border:1px solid var(--stroke);
+  border-radius:16px;
+}
+
+.cell{
+  width:var(--cell);
+  height:var(--cell);
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(47,134,255,.20);
+  position:relative;
+  overflow:hidden;
+}
+
+.tile{
+  position:absolute;
+  inset:0;
+  border-radius:12px;
+}
+.tile.water{ background: linear-gradient(180deg, rgba(255,255,255,.14), transparent), var(--water); }
+.tile.land{ background: linear-gradient(180deg, rgba(255,255,255,.14), transparent), var(--land); }
+
+.ship{
+  position:absolute;
+  width:85%;
+  height:85%;
+  left:50%;
+  top:50%;
+  transform: translate(-50%,-50%);
+  pointer-events:none;
+  filter: drop-shadow(0 6px 8px rgba(0,0,0,.35));
+}
+.ship svg{ width:100%; height:100%; display:block; }
+
+/* Hint only if empty */
+.hint{
+  position:absolute;
+  inset:4px;
+  border-radius:10px;
+  outline:2px dashed rgba(255,255,255,.45);
+  pointer-events:none;
+  z-index: 3;
+}
+.hintN{ outline-color: rgba(230,244,255,.75); }
+.hintP{ outline-color: rgba(255,155,47,.75); }
+.hintTag{
+  position:absolute;
+  right:6px; top:6px;
+  font-size:12px;
+  font-weight:950;
+  opacity:.95;
+  background: rgba(0,0,0,.25);
+  border:1px solid rgba(255,255,255,.18);
+  padding:2px 6px;
+  border-radius:999px;
+}
+.hintN .hintTag{ color:#e6f4ff; }
+.hintP .hintTag{ color:#ffcf9a; }
+
+/* Island overlay always on top */
+.islandOverlay{
+  position:absolute;
+  inset:0;
+  border-radius:12px;
+  z-index: 10;
+  pointer-events:none;
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,.20);
+}
+.islandOverlay.land{
+  background:
+    radial-gradient(20px 16px at 30% 30%, rgba(255,255,255,.18), transparent 70%),
+    radial-gradient(26px 20px at 70% 60%, rgba(255,255,255,.14), transparent 70%),
+    linear-gradient(180deg, rgba(255,255,255,.10), transparent),
+    var(--land);
+}
+.islandOverlay.water{
+  background:
+    radial-gradient(24px 18px at 30% 30%, rgba(255,255,255,.16), transparent 70%),
+    linear-gradient(180deg, rgba(255,255,255,.10), transparent),
+    var(--water);
+}
+
+/* ---------- palette ---------- */
+#paletteCard .bd{
+  display:flex;
+  flex-direction:column;
+  min-height:0;
+}
+
+.palette{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap:8px;
+  flex:1 1 auto;
+  min-height:0;
+}
+
+.piece{
+  display:grid;
+  grid-template-rows: 1fr auto;
+  grid-template-rows: 1fr auto;
+  gap:8px;
+  padding:8px;
+  border-radius:12px;
+  border:1px solid var(--stroke);
+  background: rgba(255,255,255,.04);
+  cursor:pointer;
+  min-height:0;
+}
+.piece:hover{ background: rgba(255,255,255,.06); }
+.piece.active{ outline:2px solid rgba(93,120,255,.75); background: rgba(93,120,255,.12); }
+.piece.used{ opacity:.45; cursor:default; }
+
+.pmeta{ min-width:0; text-align:center; }
+.pmeta .id{ font-weight:950; font-size:13px; }
+.pmeta .type{ font-size:12px; color:var(--muted); font-weight:900; margin-top:2px; }
+
+.mini{
+  min-height:0;
+  height:100%;
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap:2px;
+  padding:6px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.04);
+}
+
+.miniCell{
+  width:100%;
+  aspect-ratio: 1 / 1;
+  border-radius:6px;
+  border:1px solid rgba(255,255,255,.10);
+  display:grid;
+  place-items:center;
+  font-size:12px;
+  font-weight:950;
+  line-height:1;
+}
+.miniCell.water{ background: rgba(47,134,255,.55); }
+.miniCell.land{ background: rgba(106,106,106,.75); }
+.miniCell.shipNavy{ background: rgba(230,244,255,.55); color:#001a33; }
+.miniCell.shipPirate{ background: rgba(255,155,47,.60); color:#2a0f00; }
+
+.footerStatus{
+  margin-top:8px;
+  color:var(--muted);
+  font-size:12px;
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  white-space:nowrap;
+  flex:0 0 auto;
+}
+.footerStatus strong{ color:var(--ink); }
+
+.badge{
+  padding:3px 8px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.18);
+  background: rgba(0,0,0,.20);
+  font-weight:950;
+}
+.badge.ok{ color:#49e2a8; }
+.badge.no{ color:#ffd35a; }
+
+/* --- Explosion animation overlay --- */
+.explode{
+  position:absolute;
+  inset:0;
+  border-radius:12px;
+  pointer-events:none;
+  z-index: 20;
+  background:
+    radial-gradient(16px 16px at 50% 55%, rgba(255,255,255,.95), rgba(255,255,255,0) 65%),
+    radial-gradient(40px 40px at 50% 55%, rgba(255,220,90,.85), rgba(255,220,90,0) 70%),
+    radial-gradient(70px 70px at 50% 55%, rgba(255,120,60,.55), rgba(255,120,60,0) 75%),
+    radial-gradient(100px 100px at 50% 55%, rgba(255,60,90,.28), rgba(255,60,90,0) 78%);
+  transform: scale(.2);
+  opacity: 0;
+  animation: boom .55s ease-out forwards;
+  filter: drop-shadow(0 10px 18px rgba(0,0,0,.45));
+}
+@keyframes boom{
+  0%   { transform: scale(.15); opacity: 0; }
+  18%  { transform: scale(1.0); opacity: 1; }
+  60%  { transform: scale(1.15); opacity: .9; }
+  100% { transform: scale(1.35); opacity: 0; }
+}
+
+/* ---------- modal (help) ---------- */
+.modalBack{
+  position:fixed;
+  inset:0;
+  background: rgba(0,0,0,.55);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:16px;
+  z-index:9999;
+}
+.modalBack.show{ display:flex; }
+
+.modal{
+  width:min(560px, 100%);
+  max-height: min(78vh, 720px);
+  background: rgba(18,32,85,.96);
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:16px;
+  box-shadow: 0 18px 50px rgba(0,0,0,.55);
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+}
+.modalHd{
+  padding:10px 12px;
+  border-bottom:1px solid rgba(255,255,255,.14);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  font-weight:950;
+}
+.modalBd{
+  padding:12px;
+  overflow:auto;
+  color: rgba(234,240,255,.92);
+  line-height:1.35;
+  font-size:14px;
+}
+.modalBd h3{ margin:10px 0 6px; font-size:14px; }
+.modalBd p{ margin:0 0 10px; color: rgba(234,240,255,.86); }
+.modalBd ul{ margin:6px 0 12px 18px; padding:0; color: rgba(234,240,255,.86); }
+
+/* ---------- iPhone portrait: tight layout + palette as 2 rows strip ---------- */
+@media (max-width: 430px) and (orientation: portrait) and (hover:none) and (pointer:coarse){
+  header{
+    padding:8px 10px;
+    gap:6px;
+    display:grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "title help"
+      "controls controls";
+    align-items:center;
+  }
+  .hLeft{ grid-area:title; }
+  .row{ grid-area:controls; justify-content:space-between; gap:6px; }
+  #btnHelp{ grid-area:help; }
+
+  #date{ display:none; }
+
+  h1{ font-size:15px; }
+
+  select, button{ padding:6px 9px; border-radius:10px; font-size:13px; }
+
+  .wrap{
+    padding:6px;
+    gap:6px;
+    grid-template-columns: 1fr;
+    height: var(--appH);
+  }
+
+  .hd{ padding:6px 8px; }
+  .bd{ padding:8px; }
+
+  .board{ padding:8px; border-radius:14px; }
+  .cell{ border-radius:11px; }
+
+  .palette{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    gap:6px;
+  }
+
+  .piece{
+    padding:6px;
+    gap:6px;
+    border-radius:12px;
+  }
+
+  .pmeta .id{ font-size:12px; }
+  .pmeta .type{ font-size:10px; } /* small enough for iPhone */
+
+  .mini{ padding:5px; }
+  .miniCell{ font-size:11px; }
+
+  .footerStatus{ margin-top:6px; font-size:11px; }
+  #modeLabel{ font-size:12px; }
+}
+
+@media(max-width:980px){
+  :root{ --palW: 100%; }
+  .wrap{ grid-template-columns: 1fr; }
+}
+</style>
+</head>
+
+<body>
+<header id="topHeader">
+  <div class="hLeft">
+    <h1>Pirates Crossfire <span id="date"></span></h1>
+  </div>
+
+  <button id="btnHelp" type="button">Ohjeet</button>
+
+  <div class="row">
+    <select id="puzzleSel"></select>
+    <button id="btnReset">Reset</button>
+  </div>
+</header>
+
+<div class="wrap" id="wrap">
+  <div class="card" id="boardCard">
+    <div class="hd">
+      <span id="modeLabel"></span>
+    </div>
+    <div class="bd boardCardBody" id="boardBody">
+      <div class="board" id="board"></div>
+    </div>
+  </div>
+
+  <div class="card" id="paletteCard">
+    <div class="hd">
+      <span>Palat</span>
+      <span id="selInfo" style="color:var(--muted);font-size:12px;font-weight:900"></span>
+    </div>
+    <div class="bd" id="paletteBody">
+      <div class="palette" id="palette"></div>
+      <div class="footerStatus">
+        <div id="stUsed">–</div>
+        <div id="stDone">–</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modalBack" id="helpBack" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="modal">
+    <div class="modalHd">
+      <div>Ohjeet</div>
+      <button id="btnHelpClose" type="button">Sulje</button>
+    </div>
+    <div class="modalBd">
+      <h3>Yleistä</h3>
+      <ul>
+        <li>Valitse pala paletista. Sama pala uudelleen = käännä 90°.</li>
+        <li>Aseta pala klikaten pelilaudan ruutua. Laivan ruutu pyritään kohdistamaan klikkaamaasi ruutuun.</li>
+        <li>Poista pala klikkaamalla mitä tahansa sen ruutua laudalla.</li>
+        <li>Saaripalat ovat lukittuna valmiiksi pulmassa.</li>
+      </ul>
+      <h3>Pelimoodit</h3>
+      <p>Kun kaikki palat on asetettu, peli tarkistaa moodin ehdot.</p>
+      <ul>
+        <li><b>PEACE</b>: yksikään laiva ei ole vihollisen tulilinjalla.</li>
+        <li><b>PIRATES WIN</b>: kaikki merivoimien laivat ovat merirosvojen tulilinjalla, merirosvojen laivat eivät ole merivoimien tulilinjalla.</li>
+        <li><b>NAVY WINS</b>: kaikki merirosvojen laivat ovat merivoimien tulilinjalla, merivoimien laivat eivät ole merirosvojen tulilinjalla.</li>
+        <li><b>TOTAL WAR</b>: jokainen laiva on jonkin vihollislaivan tulilinjalla.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+(() => {
+  // --- date ---
+  const d = new Date();
+  document.getElementById("date").textContent = `${d.getDate()}.${d.getMonth()+1}.${d.getFullYear()}`;
+
+  // --- iOS/Safari: prevent double-tap zoom + pinch/gesture zoom ---
+  let lastTouchEnd = 0;
+  document.addEventListener("touchend", (e)=>{
+    const now = Date.now();
+    if(now - lastTouchEnd <= 300){
+      e.preventDefault();
+    }
+    lastTouchEnd = now;
+  }, {passive:false});
+  ["gesturestart","gesturechange","gestureend"].forEach(evt=>{
+    document.addEventListener(evt, (e)=>e.preventDefault(), {passive:false});
+  });
+
+  async function fetchText(url){
+    const r = await fetch(url, {cache:"no-store"});
+    if(!r.ok) throw new Error(`${url} (${r.status})`);
+    return await r.text();
+  }
+
+  let NAVY_SVG = "";
+  let PIRATE_SVG = "";
+  let NAVY_SINK_SVG = "";
+  let PIRATE_SINK_SVG = "";
+
+  const explodedCells = new Set();
+  let lastAccepted = false;
+
+  const PIECES = [
+    { id:"island1", type:"island", shape:["MM"], baseFacing:"S" },
+    { id:"island2", type:"island", shape:["MV","-V"], baseFacing:"S" },
+
+    { id:"navy1", type:"navy", shape:["V-","SV"], baseFacing:"S" },
+    { id:"navy2", type:"navy", shape:["VS"], baseFacing:"S" },
+    { id:"navy3", type:"navy", shape:["-VS","VV-"], baseFacing:"S" },
+    { id:"navy4", type:"navy", shape:["S-","VV"], baseFacing:"S" },
+
+    { id:"pirate1", type:"pirate", shape:["VVV","-S-"], baseFacing:"S" },
+    { id:"pirate2", type:"pirate", shape:["SV","-V","-S"], baseFacing:"S" }
+  ];
+
+  // IMPORTANT: remove any "navy/pirate" visible text => show Finnish names only
+  const TYPE_FI = { navy:"Merivoimat", pirate:"Merirosvot" };
+
+  function rotPoint90(x,y){ return {x:-y, y:x}; }
+
+  function parseShape(piece){
+    const cells=[];
+    for(let y=0;y<piece.shape.length;y++){
+      const row = piece.shape[y];
+      for(let x=0;x<row.length;x++){
+        const ch=row[x];
+        if(ch==="-"||ch===" "||ch==="\t") continue;
+        if(ch==="V") cells.push({x,y, kind:"water"});
+        if(ch==="M") cells.push({x,y, kind:"land"});
+        if(ch==="S") cells.push({x,y, kind: piece.type==="pirate" ? "shipPirate" : "shipNavy"});
+      }
+    }
+    return cells;
+  }
+
+  function normalize(cells){
+    let minX=Infinity, minY=Infinity;
+    for(const c of cells){ if(c.x<minX) minX=c.x; if(c.y<minY) minY=c.y; }
+    return cells.map(c=>({...c, x:c.x-minX, y:c.y-minY}));
+  }
+
+  function rotateCells90(cells){
+    const out=cells.map(c=>{
+      const p=rotPoint90(c.x,c.y);
+      return {...c, x:p.x, y:p.y};
+    });
+    return normalize(out);
+  }
+
+  function makeVariants(piece){
+    let cur = normalize(parseShape(piece));
+    const vars=[];
+    for(let i=0;i<4;i++){ vars.push(cur); cur=rotateCells90(cur); }
+    return vars;
+  }
+
+  function bbox(cells){
+    let maxX=0,maxY=0;
+    for(const c of cells){ if(c.x>maxX) maxX=c.x; if(c.y>maxY) maxY=c.y; }
+    return {w:maxX+1,h:maxY+1};
+  }
+
+  const PIECE_DEFS = PIECES.map(p=>({ id:p.id, type:p.type, variants: makeVariants(p) }));
+  const PLAYABLE_DEFS = PIECE_DEFS.filter(d=>d.type!=="island");
+
+  const boardEl = document.getElementById("board");
+  const cellsEls=[];
+  for(let y=0;y<5;y++){
+    for(let x=0;x<5;x++){
+      const d=document.createElement("div");
+      d.className="cell";
+      d.addEventListener("click",()=>onBoardClick(x,y));
+      boardEl.appendChild(d);
+      cellsEls.push(d);
+    }
+  }
+
+  const puzzleSel = document.getElementById("puzzleSel");
+  const modeLabel = document.getElementById("modeLabel");
+  const paletteEl = document.getElementById("palette");
+  const stUsed = document.getElementById("stUsed");
+  const stDone = document.getElementById("stDone");
+  const selInfo = document.getElementById("selInfo");
+
+  const helpBack = document.getElementById("helpBack");
+  const btnHelp = document.getElementById("btnHelp");
+  const btnHelpClose = document.getElementById("btnHelpClose");
+
+  function openHelp(){ helpBack.classList.add("show"); helpBack.setAttribute("aria-hidden","false"); }
+  function closeHelp(){ helpBack.classList.remove("show"); helpBack.setAttribute("aria-hidden","true"); }
+  btnHelp.addEventListener("click", openHelp);
+  btnHelpClose.addEventListener("click", closeHelp);
+  helpBack.addEventListener("click", (e)=>{ if(e.target === helpBack) closeHelp(); });
+  document.addEventListener("keydown", (e)=>{ if(e.key === "Escape" && helpBack.classList.contains("show")) closeHelp(); });
+
+  let puzzleSet = null;
+  let activePuzzleIndex = 0;
+
+  let lockedIslands = [];
+  let placed = [];
+
+  let selectedPieceId = null;
+  let selectedRot = 0;
+
+  function currentPuzzle(){ return puzzleSet.puzzles[activePuzzleIndex]; }
+
+  function modeKey(mode){
+    const m = String(mode||"").toLowerCase().replace(/\s+/g,"");
+    if(m==="peace"||m==="mode1"||m==="1") return "peace";
+    if(m==="pirateswin"||m==="piratewin"||m==="pirates"||m==="mode2"||m==="2") return "pirateswin";
+    if(m==="navywins"||m==="navywin"||m==="navy"||m==="mode3"||m==="3") return "navywins";
+    if(m==="totalwar"||m==="war"||m==="mode4"||m==="4") return "totalwar";
+    return m || "peace";
+  }
+  function modeName(mode){
+    const k = modeKey(mode);
+    if(k==="peace") return "PEACE";
+    if(k==="pirateswin") return "PIRATES WIN";
+    if(k==="navywins") return "NAVY WINS";
+    if(k==="totalwar") return "TOTAL WAR";
+    return String(mode||"PEACE").toUpperCase();
+  }
+
+  function buildOcc(){
+    const occ = Array.from({length:5},()=>Array.from({length:5},()=>null));
+    function stamp(list, lockedFlag){
+      for(const pl of list){
+        const def = PIECE_DEFS.find(d=>d.id===pl.pieceId);
+        if(!def) continue;
+        const cells = def.variants[pl.rot%4];
+        for(const c of cells){
+          const bx = pl.x + c.x;
+          const by = pl.y + c.y;
+          if(bx<0||bx>=5||by<0||by>=5) continue;
+          occ[by][bx] = { pieceId: pl.pieceId, kind: c.kind, rot: pl.rot%4, locked: lockedFlag };
+        }
+      }
+    }
+    stamp(lockedIslands, true);
+    stamp(placed, false);
+    return occ;
+  }
+
+  function isIslandCell(x,y){
+    const occ = buildOcc();
+    const here = occ[y][x];
+    return !!(here && here.locked);
+  }
+
+  function removePlayerPieceAt(x,y){
+    const occ = buildOcc();
+    const here = occ[y][x];
+    if(!here) return null;
+    if(here.locked) return null;
+    const removedId = here.pieceId;
+    placed = placed.filter(p=>p.pieceId !== removedId);
+    return removedId;
+  }
+
+  function canPlace(pieceId, rot, ax, ay){
+    const def = PIECE_DEFS.find(d=>d.id===pieceId);
+    if(!def) return false;
+    if(placed.some(p=>p.pieceId===pieceId)) return false;
+
+    const cells = def.variants[rot%4];
+    const occ = buildOcc();
+    for(const c of cells){
+      const bx = ax + c.x;
+      const by = ay + c.y;
+      if(bx<0||bx>=5||by<0||by>=5) return false;
+      if(occ[by][bx]) return false;
+    }
+    return true;
+  }
+
+  function respectsHintsIfCovered(pieceId, rot, ax, ay){
+    const puz = currentPuzzle();
+    const hints = Array.isArray(puz.shipHints) ? puz.shipHints : [];
+    if(!hints.length) return true;
+
+    const def = PIECE_DEFS.find(d=>d.id===pieceId);
+    const cells = def.variants[rot%4];
+    const cover = new Map();
+    for(const c of cells) cover.set(`${ax+c.x},${ay+c.y}`, c.kind);
+
+    for(const h of hints){
+      const k = cover.get(`${h.x},${h.y}`);
+      if(k === undefined) continue;
+      const need = (h.side==="navy") ? "shipNavy" : "shipPirate";
+      if(k !== need) return false;
+    }
+    return true;
+  }
+
+  function trySmartPlaceAtClick(pieceId, rot, clickX, clickY){
+    const def = PIECE_DEFS.find(d=>d.id===pieceId);
+    if(!def) return false;
+    const cells = def.variants[rot%4];
+
+    const shipCells = cells.filter(c=>c.kind==="shipNavy"||c.kind==="shipPirate");
+    const anchors = shipCells.length ? shipCells : cells;
+
+    for(const a of anchors){
+      const ax = clickX - a.x;
+      const ay = clickY - a.y;
+      if(!canPlace(pieceId, rot, ax, ay)) continue;
+      if(!respectsHintsIfCovered(pieceId, rot, ax, ay)) continue;
+      placed.push({pieceId, rot:rot%4, x:ax, y:ay});
+      return true;
+    }
+    return false;
+  }
+
+  function onBoardClick(x,y){
+    if(isIslandCell(x,y)) return;
+
+    const removedId = removePlayerPieceAt(x,y);
+    if(removedId){
+      explodedCells.clear();
+      lastAccepted = false;
+      selectedPieceId = removedId;
+      selectedRot = 0;
+      renderAll();
+      return;
+    }
+
+    if(!selectedPieceId) return;
+    const ok = trySmartPlaceAtClick(selectedPieceId, selectedRot, x,y);
+    if(ok){
+      explodedCells.clear();
+      lastAccepted = false;
+      renderAll();
+    }
+  }
+
+  function makeMini(def, rot){
+    const cells = def.variants[rot%4];
+    const b = bbox(cells);
+    const W = b.w, H = b.h;
+
+    const VW = 4, VH = 4;
+    const offX = Math.floor((VW - W) / 2);
+    const offY = Math.floor((VH - H) / 2);
+
+    const mini = document.createElement("div");
+    mini.className = "mini";
+
+    const map = new Map();
+    for(const c of cells) map.set(`${c.x},${c.y}`, c);
+
+    for(let y=0;y<VH;y++){
+      for(let x=0;x<VW;x++){
+        const d = document.createElement("div");
+        d.className = "miniCell";
+
+        const px = x - offX;
+        const py = y - offY;
+        const c = map.get(`${px},${py}`);
+
+        if(!c){
+          d.style.visibility="hidden";
+        }else{
+          d.style.visibility="visible";
+          d.classList.add(c.kind);
+          if(c.kind==="shipNavy") d.textContent="N";
+          if(c.kind==="shipPirate") d.textContent="P";
+        }
+        mini.appendChild(d);
+      }
+    }
+    return mini;
+  }
+
+  function renderPalette(){
+    paletteEl.innerHTML="";
+    for(const def of PLAYABLE_DEFS){
+      const used = placed.some(p=>p.pieceId===def.id);
+      const card=document.createElement("div");
+      card.className="piece" + (used ? " used" : "") + ((selectedPieceId===def.id) ? " active" : "");
+
+      const mini = makeMini(def, (selectedPieceId===def.id) ? selectedRot : 0);
+
+      const meta=document.createElement("div");
+      meta.className="pmeta";
+
+      const id=document.createElement("div");
+      id.className="id";
+      id.textContent=def.id;
+
+      const type=document.createElement("div");
+      type.className="type";
+      type.textContent = TYPE_FI[def.type] || "";
+
+
+      meta.appendChild(type);
+
+      card.appendChild(mini);
+      card.appendChild(meta);
+
+      card.addEventListener("click",()=>{
+        if(used) return;
+        if(selectedPieceId!==def.id){
+          selectedPieceId=def.id;
+          selectedRot=0;
+        }else{
+          selectedRot=(selectedRot+1)%4;
+        }
+        renderAll();
+      });
+
+      paletteEl.appendChild(card);
+    }
+  }
+
+  // rest of game logic unchanged from previous version -----------------
+  const DIRS = { N:{dx:0,dy:-1}, E:{dx:1,dy:0}, S:{dx:0,dy:1}, W:{dx:-1,dy:0} };
+  function rotDirCW(dir, times){
+    const order=["N","E","S","W"];
+    const i=order.indexOf(dir);
+    return order[(i + (times%4) + 4)%4];
+  }
+  function leftOf(dir){ return rotDirCW(dir, -1); }
+  function rightOf(dir){ return rotDirCW(dir, +1); }
+
+  function listShipsAndBlocks(){
+    const occ = buildOcc();
+    const ships=[];
+    const blocks = Array.from({length:5},()=>Array.from({length:5},()=>false));
+    for(let y=0;y<5;y++){
+      for(let x=0;x<5;x++){
+        const c = occ[y][x];
+        if(!c) continue;
+        if(c.kind==="land") blocks[y][x]=true;
+        if(c.kind==="shipNavy"){ ships.push({x,y,side:"navy",rot:c.rot|0}); blocks[y][x]=true; }
+        if(c.kind==="shipPirate"){ ships.push({x,y,side:"pirate",rot:c.rot|0}); blocks[y][x]=true; }
+      }
+    }
+    return {ships, blocks};
+  }
+
+  function visibleEnemiesFor(shooter, shipsByPos, blocks){
+    const bow = rotDirCW("N", shooter.rot|0);
+    const dirs = [leftOf(bow), rightOf(bow)];
+    const seen = new Set();
+    for(const d of dirs){
+      const {dx,dy} = DIRS[d];
+      let x = shooter.x + dx;
+      let y = shooter.y + dy;
+      while(x>=0 && x<5 && y>=0 && y<5){
+        if(blocks[y][x]){
+          const target = shipsByPos.get(`${x},${y}`);
+          if(target && target.side !== shooter.side) seen.add(`${x},${y}`);
+          break;
+        }
+        x += dx; y += dy;
+      }
+    }
+    return seen;
+  }
+
+  function computeHits(){
+    const {ships, blocks} = listShipsAndBlocks();
+    const shipsByPos = new Map();
+    for(const s of ships) shipsByPos.set(`${s.x},${s.y}`, s);
+    const hits = new Map();
+    for(const s of ships){
+      const seen = visibleEnemiesFor(s, shipsByPos, blocks);
+      for(const pos of seen){
+        if(!hits.has(pos)) hits.set(pos, new Set());
+        hits.get(pos).add(s.side);
+      }
+    }
+    return {ships, hits};
+  }
+
+  function modeSatisfied(){
+    const mk = modeKey(currentPuzzle().mode);
+    const {ships, hits} = computeHits();
+    const navy = ships.filter(s=>s.side==="navy");
+    const pirate = ships.filter(s=>s.side==="pirate");
+    function isHitBy(pos, side){ const set = hits.get(pos); return !!(set && set.has(side)); }
+
+    if(mk==="peace"){
+      for(const n of navy)   if(isHitBy(`${n.x},${n.y}`,"pirate")) return false;
+      for(const p of pirate) if(isHitBy(`${p.x},${p.y}`,"navy"))   return false;
+      return true;
+    }
+    if(mk==="pirateswin"){
+      for(const n of navy)   if(!isHitBy(`${n.x},${n.y}`,"pirate")) return false;
+      for(const p of pirate) if(isHitBy(`${p.x},${p.y}`,"navy"))    return false;
+      return true;
+    }
+    if(mk==="navywins"){
+      for(const p of pirate) if(!isHitBy(`${p.x},${p.y}`,"navy"))   return false;
+      for(const n of navy)   if(isHitBy(`${n.x},${n.y}`,"pirate"))  return false;
+      return true;
+    }
+    if(mk==="totalwar"){
+      for(const n of navy)   if(!isHitBy(`${n.x},${n.y}`,"pirate")) return false;
+      for(const p of pirate) if(!isHitBy(`${p.x},${p.y}`,"navy"))   return false;
+      return true;
+    }
+    return true;
+  }
+
+  function hintsSatisfied(){
+    const hints = Array.isArray(currentPuzzle().shipHints) ? currentPuzzle().shipHints : [];
+    if(!hints.length) return true;
+    const occ = buildOcc();
+    for(const h of hints){
+      const cell = occ[h.y][h.x];
+      if(!cell) return false;
+      const need = (h.side==="navy") ? "shipNavy" : "shipPirate";
+      if(cell.kind !== need) return false;
+    }
+    return true;
+  }
+
+  function puzzleDone(){
+    const occ = buildOcc();
+    const filled = occ.flat().filter(Boolean).length;
+    return (filled === 25) && (placed.length === PLAYABLE_DEFS.length);
+  }
+
+  function puzzleAccepted(){
+    if(!puzzleDone()) return false;
+    return hintsSatisfied() && modeSatisfied();
+  }
+
+  function sinkSideSet(){
+    const mk = modeKey(currentPuzzle().mode);
+    if(mk==="pirateswin") return new Set(["navy"]);
+    if(mk==="navywins") return new Set(["pirate"]);
+    if(mk==="totalwar") return new Set(["navy","pirate"]);
+    return new Set();
+  }
+
+  function shipCellPositionsForSides(occ, sinkSides){
+    const out=[];
+    for(let y=0;y<5;y++){
+      for(let x=0;x<5;x++){
+        const c = occ[y][x];
+        if(!c) continue;
+        if(c.kind==="shipNavy" && sinkSides.has("navy")) out.push({x,y,side:"navy"});
+        if(c.kind==="shipPirate" && sinkSides.has("pirate")) out.push({x,y,side:"pirate"});
+      }
+    }
+    return out;
+  }
+
+  function runExplosionsIfNeeded(){
+    const accepted = puzzleAccepted();
+    if(accepted && !lastAccepted){
+      const occ = buildOcc();
+      const sinkSides = sinkSideSet();
+      const targets = shipCellPositionsForSides(occ, sinkSides)
+        .filter(t => !explodedCells.has(`${t.x},${t.y}`));
+
+      targets.forEach((t, idx)=>{
+        const key = `${t.x},${t.y}`;
+        const delay = 120 * idx;
+        setTimeout(()=>{
+          const el = cellsEls[t.y*5 + t.x];
+          if(!el) return;
+          const boom = document.createElement("div");
+          boom.className = "explode";
+          el.appendChild(boom);
+          setTimeout(()=>{
+            explodedCells.add(key);
+            renderAll();
+          }, 560);
+        }, delay);
+      });
+    }
+    lastAccepted = accepted;
+  }
+
+  function renderBoard(){
+    const occ = buildOcc();
+    const hints = Array.isArray(currentPuzzle().shipHints) ? currentPuzzle().shipHints : [];
+
+    for(const c of cellsEls) c.innerHTML="";
+
+    for(let y=0;y<5;y++){
+      for(let x=0;x<5;x++){
+        const cell = occ[y][x];
+        if(!cell) continue;
+
+        const el = cellsEls[y*5+x];
+
+        const under=document.createElement("div");
+        under.className = "tile " + (cell.kind==="land" ? "land" : "water");
+        if(cell.kind==="shipNavy" || cell.kind==="shipPirate") under.className = "tile water";
+        el.appendChild(under);
+
+        if(cell.kind==="shipNavy" || cell.kind==="shipPirate"){
+          const key = `${x},${y}`;
+          const forceSinking = explodedCells.has(key);
+
+          const ship=document.createElement("div");
+          ship.className="ship";
+
+          const isNavy = (cell.kind==="shipNavy");
+          const svg = isNavy
+            ? (forceSinking ? NAVY_SINK_SVG : NAVY_SVG)
+            : (forceSinking ? PIRATE_SINK_SVG : PIRATE_SVG);
+
+          ship.innerHTML = svg;
+
+          const rotDeg = forceSinking ? 0 : (cell.rot*90);
+          ship.style.transform = `translate(-50%,-50%) rotate(${rotDeg}deg)`;
+          el.appendChild(ship);
+        }
+      }
+    }
+
+    for(const h of hints){
+      if(occ[h.y][h.x]) continue;
+      const el = cellsEls[h.y*5+h.x];
+      const box=document.createElement("div");
+      box.className = "hint " + (h.side==="navy" ? "hintN" : "hintP");
+      const tag=document.createElement("div");
+      tag.className="hintTag";
+      tag.textContent = (h.side==="navy") ? "N" : "P";
+      box.appendChild(tag);
+      el.appendChild(box);
+    }
+
+    for(let y=0;y<5;y++){
+      for(let x=0;x<5;x++){
+        const cell = occ[y][x];
+        if(!cell || !cell.locked) continue;
+        const el = cellsEls[y*5+x];
+        const ov = document.createElement("div");
+        ov.className = "islandOverlay " + (cell.kind==="land" ? "land" : "water");
+        el.appendChild(ov);
+      }
+    }
+  }
+
+  function renderStatus(){
+    stUsed.innerHTML = `Käytetty: <strong>${placed.length}/${PLAYABLE_DEFS.length}</strong>`;
+    selInfo.textContent = selectedPieceId ? `Valittu: ${selectedPieceId} (${selectedRot*90}°)` : `Valittu: –`;
+
+    if(!puzzleDone()){
+      stDone.innerHTML = `<span class="badge no">Kesken</span>`;
+      return;
+    }
+    stDone.innerHTML = puzzleAccepted()
+      ? `<span class="badge ok">Valmis</span>`
+      : `<span class="badge no">Ei kelpaa</span>`;
+  }
+
+  function renderAll(){
+    modeLabel.textContent = `Moodi: ${modeName(currentPuzzle().mode)}`;
+    renderPalette();
+    renderBoard();
+    renderStatus();
+    runExplosionsIfNeeded();
+    layoutFit();
+  }
+
+  function buildPuzzleSelect(){
+    puzzleSel.innerHTML="";
+    puzzleSet.puzzles.forEach((p,i)=>{
+      const opt=document.createElement("option");
+      opt.value=String(i);
+      opt.textContent = `${modeName(p.mode)} – Pulma ${i+1}`;
+      puzzleSel.appendChild(opt);
+    });
+    puzzleSel.addEventListener("change",()=>{
+      loadPuzzle(parseInt(puzzleSel.value,10)||0);
+    });
+  }
+
+  function loadPuzzle(idx){
+    activePuzzleIndex = Math.max(0, Math.min(puzzleSet.puzzles.length-1, idx));
+    puzzleSel.value = String(activePuzzleIndex);
+
+    const placements = Array.isArray(currentPuzzle().placements) ? currentPuzzle().placements : [];
+    lockedIslands = placements
+      .filter(pl => pl && (pl.pieceId==="island1" || pl.pieceId==="island2"))
+      .map(pl => ({ pieceId: pl.pieceId, rot: (pl.rot|0)%4, x: pl.x|0, y: pl.y|0 }));
+
+    placed = [];
+    selectedPieceId = null;
+    selectedRot = 0;
+    explodedCells.clear();
+    lastAccepted = false;
+    renderAll();
+  }
+
+  document.getElementById("btnReset").addEventListener("click",()=>{
+    placed=[];
+    selectedPieceId=null;
+    selectedRot=0;
+    explodedCells.clear();
+    lastAccepted = false;
+    renderAll();
+  });
+
+  function setAppHeight(){
+    const header = document.getElementById("topHeader");
+    const h = header ? header.getBoundingClientRect().height : 0;
+    const appH = Math.max(200, window.innerHeight - h);
+    document.documentElement.style.setProperty("--appH", appH + "px");
+  }
+
+  function layoutFit(){
+    setAppHeight();
+    const gap = (window.innerWidth < 500) ? 5 : 6;
+    document.documentElement.style.setProperty("--gap", gap + "px");
+
+    const body = document.getElementById("boardBody");
+    if(!body) return;
+
+    const r = body.getBoundingClientRect();
+    const innerPad = (window.matchMedia("(max-width: 430px) and (orientation: portrait)").matches) ? (8*2) : (10*2);
+
+    const availW = r.width  - 2;
+    const availH = r.height - 2;
+
+    const maxCellW = Math.floor((availW - innerPad - 4*gap) / 5);
+    const maxCellH = Math.floor((availH - innerPad - 4*gap) / 5);
+
+    const cell = Math.max(28, Math.min(maxCellW, maxCellH, 92));
+    document.documentElement.style.setProperty("--cell", cell + "px");
+  }
+
+  window.addEventListener("resize", ()=>{
+    explodedCells.clear();
+    lastAccepted = false;
+    layoutFit();
+    renderBoard();
+  }, {passive:true});
+
+  async function boot(){
+    try{
+      [NAVY_SVG, PIRATE_SVG, NAVY_SINK_SVG, PIRATE_SINK_SVG] = await Promise.all([
+        fetchText("navy_ship.svg"),
+        fetchText("pirate_ship.svg"),
+        fetchText("navy_ship_sinking.svg"),
+        fetchText("pirate_ship_sinking.svg")
+      ]);
+    }catch(e){
+      alert("SVG-lataus epäonnistui.\nVarmista että kaikki 4 svg:t ovat samassa kansiossa.\n\n" + e.message);
+    }
+
+    try{
+      const raw = await fetchText("pirates_crossfire_pulmasetti.json");
+      puzzleSet = JSON.parse(raw);
+    }catch(e){
+      alert("Pulmatiedoston automaattilataus epäonnistui.\n\n" + e.message);
+      puzzleSet = { puzzles: [] };
+    }
+
+    if(!puzzleSet.puzzles || !Array.isArray(puzzleSet.puzzles)) puzzleSet.puzzles=[];
+    if(puzzleSet.puzzles.length===0){
+      puzzleSet.puzzles=[{name:"Pulma 1", mode:"peace", placements:[], shipHints:[] }];
+    }
+
+function registerServiceWorker(){
+  if ("serviceWorker" in navigator){
+    navigator.serviceWorker.register("./sw.js", { scope: "./" }).catch(()=>{});
+  }
+}
+
+    buildPuzzleSelect();
+    layoutFit();
+    loadPuzzle(0);
+	registerServiceWorker();
+  }
+
+
+
+
+  boot();
+})();
+</script>
+</body>
+</html>

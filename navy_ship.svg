@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- Shadow -->
+  <ellipse cx="52" cy="54" rx="24" ry="34" fill="rgba(0,0,0,0.3)"/>
+
+  <!-- Hull - slightly larger and more imposing than pirate ship -->
+  <path d="M50 6 C64 10 73 23 75 40 L75 70 C75 78 64 87 50 89 C36 87 25 78 25 70 L25 40 C27 23 36 10 50 6 Z"
+        fill="#daeef9" stroke="#5599cc" stroke-width="1.5"/>
+
+  <!-- Deck planks -->
+  <line x1="50" y1="8" x2="50" y2="87" stroke="#99c4e8" stroke-width="0.8" stroke-dasharray="4,2"/>
+  <line x1="41" y1="13" x2="37" y2="80" stroke="#99c4e8" stroke-width="0.6" stroke-dasharray="3,3"/>
+  <line x1="59" y1="13" x2="63" y2="80" stroke="#99c4e8" stroke-width="0.6" stroke-dasharray="3,3"/>
+
+  <!-- Mast base -->
+  <circle cx="50" cy="47" r="5" fill="#5599cc" stroke="#3377aa" stroke-width="1"/>
+  <circle cx="50" cy="47" r="2.5" fill="#f0d060"/>
+  <circle cx="50" cy="47" r="6" fill="none" stroke="#f0d060" stroke-width="1.2"/>
+
+  <!-- Single sail with Union Jack / Naval ensign feel -->
+  <rect x="31" y="33" width="38" height="27" rx="3" fill="#1a1f8c" stroke="#0d1460" stroke-width="1.2"/>
+  <!-- White cross on sail -->
+  <line x1="31" y1="46.5" x2="69" y2="46.5" stroke="white" stroke-width="3"/>
+  <line x1="50" y1="33" x2="50" y2="60" stroke="white" stroke-width="3"/>
+  <!-- Red cross on top of white -->
+  <line x1="31" y1="46.5" x2="69" y2="46.5" stroke="#cc2020" stroke-width="1.5"/>
+  <line x1="50" y1="33" x2="50" y2="60" stroke="#cc2020" stroke-width="1.5"/>
+  <!-- Diagonal red stripes (X) -->
+  <line x1="31" y1="33" x2="69" y2="60" stroke="#cc2020" stroke-width="1" opacity="0.7"/>
+  <line x1="69" y1="33" x2="31" y2="60" stroke="#cc2020" stroke-width="1" opacity="0.7"/>
+
+  <!-- LEFT cannons (4 - navy has more firepower) -->
+  <rect x="13" y="30" width="14" height="6" rx="3" fill="#555" stroke="#222" stroke-width="1"/>
+  <rect x="11" y="30.5" width="4" height="5" rx="1.5" fill="#444"/>
+  <rect x="13" y="42" width="14" height="6" rx="3" fill="#555" stroke="#222" stroke-width="1"/>
+  <rect x="11" y="42.5" width="4" height="5" rx="1.5" fill="#444"/>
+  <rect x="13" y="54" width="14" height="6" rx="3" fill="#555" stroke="#222" stroke-width="1"/>
+  <rect x="11" y="54.5" width="4" height="5" rx="1.5" fill="#444"/>
+  <rect x="13" y="66" width="14" height="6" rx="3" fill="#555" stroke="#222" stroke-width="1"/>
+  <rect x="11" y="66.5" width="4" height="5" rx="1.5" fill="#444"/>
+
+  <!-- RIGHT cannons (4) -->
+  <rect x="73" y="30" width="14" height="6" rx="3" fill="#555" stroke="#222" stroke-width="1"/>
+  <rect x="83" y="30.5" width="4" height="5" rx="1.5" fill="#444"/>
+  <rect x="73" y="42" width="14" height="6" rx="3" fill="#555" stroke="#222" stroke-width="1"/>
+  <rect x="83" y="42.5" width="4" height="5" rx="1.5" fill="#444"/>
+  <rect x="73" y="54" width="14" height="6" rx="3" fill="#555" stroke="#222" stroke-width="1"/>
+  <rect x="83" y="54.5" width="4" height="5" rx="1.5" fill="#444"/>
+  <rect x="73" y="66" width="14" height="6" rx="3" fill="#555" stroke="#222" stroke-width="1"/>
+  <rect x="83" y="66.5" width="4" height="5" rx="1.5" fill="#444"/>
+
+  <!-- Cannon ports left -->
+  <rect x="24" y="31" width="5" height="4" rx="1" fill="#3377aa"/>
+  <rect x="24" y="43" width="5" height="4" rx="1" fill="#3377aa"/>
+  <rect x="24" y="55" width="5" height="4" rx="1" fill="#3377aa"/>
+  <rect x="24" y="67" width="5" height="4" rx="1" fill="#3377aa"/>
+  <!-- Cannon ports right -->
+  <rect x="71" y="31" width="5" height="4" rx="1" fill="#3377aa"/>
+  <rect x="71" y="43" width="5" height="4" rx="1" fill="#3377aa"/>
+  <rect x="71" y="55" width="5" height="4" rx="1" fill="#3377aa"/>
+  <rect x="71" y="67" width="5" height="4" rx="1" fill="#3377aa"/>
+
+  <!-- Gold trim on bow -->
+  <path d="M46 6 Q50 2 54 6" fill="none" stroke="#f0d060" stroke-width="2"/>
+  <!-- Gold figurehead detail -->
+  <circle cx="50" cy="7" r="2" fill="#f0d060"/>
+
+  <!-- Gold trim on stern -->
+  <path d="M36 87 Q50 94 64 87" fill="none" stroke="#f0d060" stroke-width="2"/>
+
+  <!-- Gold rail trim along hull sides -->
+  <path d="M50 6 C64 10 73 23 75 40 L75 70 C75 78 64 87 50 89" fill="none" stroke="#f0d060" stroke-width="0.8" opacity="0.6"/>
+  <path d="M50 6 C36 10 27 23 25 40 L25 70 C25 78 36 87 50 89" fill="none" stroke="#f0d060" stroke-width="0.8" opacity="0.6"/>
+
+  <!-- Hull outline -->
+  <path d="M50 6 C64 10 73 23 75 40 L75 70 C75 78 64 87 50 89 C36 87 25 78 25 70 L25 40 C27 23 36 10 50 6 Z"
+        fill="none" stroke="#3377aa" stroke-width="1.5"/>
+</svg>

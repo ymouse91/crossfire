@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <!-- Clip-patht ovat LAIVAN LOCAL koordinaateissa (transform-ryhmän sisällä).
+         Vesiviiva world y=58 vastaa local-tilassa diagonaalia:
+         lx=-50 -> ly=107.7,  lx=150 -> ly=-7.7  (kulma +30deg) -->
+    <clipPath id="pc_above">
+      <polygon points="-50,-200 150,-200 150,-7.7 -50,107.7"/>
+    </clipPath>
+    <clipPath id="pc_below">
+      <polygon points="-50,107.7 150,-7.7 150,200 -50,200"/>
+    </clipPath>
+  </defs>
+
+  <g transform="rotate(30, 50, 58) translate(0, 8)">
+
+    <!-- YLÄOSA (veden yläpuolella) -->
+    <g clip-path="url(#pc_above)">
+      <path d="M50 8 C62 12 70 24 72 40 L72 68 C72 76 62 84 50 86 C38 84 28 76 28 68 L28 40 C30 24 38 12 50 8 Z"
+            fill="#5C3317" stroke="#1a0800" stroke-width="1.5"/>
+      <line x1="50" y1="10" x2="50" y2="84" stroke="#7a4a22" stroke-width="0.8" stroke-dasharray="4,2"/>
+      <line x1="42" y1="15" x2="38" y2="78" stroke="#7a4a22" stroke-width="0.6" stroke-dasharray="3,3"/>
+      <line x1="58" y1="15" x2="62" y2="78" stroke="#7a4a22" stroke-width="0.6" stroke-dasharray="3,3"/>
+      <path d="M28 54 Q40 49 50 55 Q60 60 72 54" fill="none" stroke="#1a0800" stroke-width="2.5"/>
+      <line x1="42" y1="51" x2="39" y2="57" stroke="#2a0f00" stroke-width="1.5"/>
+      <line x1="50" y1="53" x2="48" y2="59" stroke="#2a0f00" stroke-width="1.5"/>
+      <line x1="58" y1="53" x2="61" y2="58" stroke="#2a0f00" stroke-width="1.5"/>
+      <circle cx="50" cy="44" r="3.5" fill="#2a1008" stroke="#1a0800" stroke-width="1"/>
+      <line x1="50" y1="44" x2="74" y2="28" stroke="#5a3010" stroke-width="3" stroke-linecap="round"/>
+      <line x1="50" y1="44" x2="74" y2="28" stroke="#7a4a22" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M55 40 Q66 32 74 28 Q70 38 61 43 Z" fill="#c8b080" opacity="0.85"/>
+      <circle cx="64" cy="36" r="3.5" fill="white" opacity="0.75"/>
+      <circle cx="62.6" cy="35.5" r="0.9" fill="#333" opacity="0.8"/>
+      <circle cx="65.4" cy="35.5" r="0.9" fill="#333" opacity="0.8"/>
+      <line x1="61" y1="38" x2="67" y2="40" stroke="white" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+      <line x1="67" y1="38" x2="61" y2="40" stroke="white" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+      <rect x="16" y="32" width="14" height="6" rx="3" fill="#444" stroke="#222" stroke-width="1"/>
+      <rect x="14" y="32.5" width="4" height="5" rx="1.5" fill="#333"/>
+      <rect x="16" y="45" width="14" height="6" rx="3" fill="#444" stroke="#222" stroke-width="1"/>
+      <rect x="14" y="45.5" width="4" height="5" rx="1.5" fill="#333"/>
+      <rect x="70" y="32" width="14" height="6" rx="3" fill="#444" stroke="#222" stroke-width="1"/>
+      <rect x="82" y="32.5" width="4" height="5" rx="1.5" fill="#333"/>
+      <rect x="70" y="45" width="14" height="6" rx="3" fill="#444" stroke="#222" stroke-width="1"/>
+      <rect x="82" y="45.5" width="4" height="5" rx="1.5" fill="#333"/>
+      <rect x="27" y="33" width="5" height="4" rx="1" fill="#2a0f00"/>
+      <rect x="27" y="46" width="5" height="4" rx="1" fill="#2a0f00"/>
+      <rect x="68" y="33" width="5" height="4" rx="1" fill="#2a0f00"/>
+      <rect x="68" y="46" width="5" height="4" rx="1" fill="#2a0f00"/>
+      <circle cx="44" cy="36" r="5" fill="#e85020" opacity="0.85"/>
+      <circle cx="47" cy="31" r="4" fill="#f09020" opacity="0.75"/>
+      <circle cx="42" cy="29" r="3" fill="#cc3010" opacity="0.65"/>
+      <circle cx="45" cy="25" r="4" fill="#555" opacity="0.5"/>
+      <circle cx="42" cy="20" r="3.5" fill="#444" opacity="0.4"/>
+      <circle cx="47" cy="16" r="3" fill="#666" opacity="0.3"/>
+      <path d="M50 8 C62 12 70 24 72 40 L72 68 C72 76 62 84 50 86 C38 84 28 76 28 68 L28 40 C30 24 38 12 50 8 Z"
+            fill="none" stroke="#1a0800" stroke-width="1.5"/>
+    </g>
+
+    <!-- ALAOSA (veden alla) - tumma siniharmaa -->
+    <g clip-path="url(#pc_below)">
+      <path d="M50 8 C62 12 70 24 72 40 L72 68 C72 76 62 84 50 86 C38 84 28 76 28 68 L28 40 C30 24 38 12 50 8 Z"
+            fill="#1a2a1e" stroke="#0a1008" stroke-width="1.5"/>
+      <path d="M50 8 C62 12 70 24 72 40 L72 68 C72 76 62 84 50 86 C38 84 28 76 28 68 L28 40 C30 24 38 12 50 8 Z"
+            fill="#083850" opacity="0.7"/>
+      <rect x="16" y="58" width="14" height="6" rx="3" fill="#1a2a3a" stroke="#0a1020" stroke-width="1"/>
+      <rect x="14" y="58.5" width="4" height="5" rx="1.5" fill="#0a1a2a"/>
+      <rect x="70" y="58" width="14" height="6" rx="3" fill="#1a2a3a" stroke="#0a1020" stroke-width="1"/>
+      <rect x="82" y="58.5" width="4" height="5" rx="1.5" fill="#0a1a2a"/>
+      <path d="M50 8 C62 12 70 24 72 40 L72 68 C72 76 62 84 50 86 C38 84 28 76 28 68 L28 40 C30 24 38 12 50 8 Z"
+            fill="none" stroke="#0a1a2a" stroke-width="1.5"/>
+    </g>
+  </g>
+
+  <!-- Vesiviiva world-koordinaateissa, kaiken päälle -->
+  <path d="M0 58 Q10 56 20 58 Q30 60 40 58 Q50 56 60 58 Q70 60 80 58 Q90 56 100 58"
+        fill="none" stroke="#4ab0d0" stroke-width="2" opacity="0.95"/>
+  <path d="M0 62 Q15 60 30 62 Q45 64 60 62 Q75 60 100 62"
+        fill="none" stroke="#2a8aab" stroke-width="1" opacity="0.5"/>
+
+  <!-- Romua -->
+  <line x1="6" y1="52" x2="14" y2="46" stroke="#5a3010" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+  <rect x="83" y="49" width="8" height="3" rx="1" fill="#3a1f0a" opacity="0.65" transform="rotate(-20,83,49)"/>
+  <circle cx="4" cy="64" r="2" fill="#3a1f0a" opacity="0.5"/>
+  <line x1="88" y1="65" x2="94" y2="59" stroke="#5a3010" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+</svg>
