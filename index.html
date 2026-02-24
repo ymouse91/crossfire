@@ -207,17 +207,24 @@ button:active{ transform: translateY(1px); }
 }
 .hintN{ outline-color: rgba(230,244,255,.75); }
 .hintP{ outline-color: rgba(255,155,47,.75); }
+
 .hintTag{
   position:absolute;
-  right:6px; top:6px;
-  font-size:12px;
-  font-weight:950;
-  opacity:.95;
-  background: rgba(0,0,0,.25);
-  border:1px solid rgba(255,255,255,.18);
-  padding:2px 6px;
-  border-radius:999px;
+  inset:0;                 /* täyttää koko hint-laatan */
+  display:grid;
+  place-items:center;      /* keskittää SVG:n */
+  background:none;
+  border:none;
+  padding:0;
 }
+
+.hintTag svg{
+  width:100%;
+  height:100%;
+  display:block;
+  pointer-events:none;
+}
+
 .hintN .hintTag{ color:#e6f4ff; }
 .hintP .hintTag{ color:#ffcf9a; }
 
@@ -261,8 +268,7 @@ button:active{ transform: translateY(1px); }
 
 .piece{
   display:grid;
-  grid-template-rows: 1fr auto;
-  grid-template-rows: 1fr auto;
+  grid-template-rows: auto auto; /* EI 1fr */
   gap:8px;
   padding:8px;
   border-radius:12px;
@@ -271,20 +277,21 @@ button:active{ transform: translateY(1px); }
   cursor:pointer;
   min-height:0;
 }
+
 .piece:hover{ background: rgba(255,255,255,.06); }
 .piece.active{ outline:2px solid rgba(93,120,255,.75); background: rgba(93,120,255,.12); }
 .piece.used{ opacity:.45; cursor:default; }
 
-.pmeta{ min-width:0; text-align:center; }
+.pmeta{ min-width:0; text-align:center;   margin:0;}
 .pmeta .id{ font-weight:950; font-size:13px; }
-.pmeta .type{ font-size:12px; color:var(--muted); font-weight:900; margin-top:2px; }
+.pmeta .type{ font-size:12px; color:var(--muted); font-weight:900; margin-top:0px; }
 
 .mini{
-  min-height:0;
-  height:100%;
+  width:90%;
+  margin:0 auto;            /* keskelle */
   display:grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
+  grid-auto-rows: 1fr;
   gap:2px;
   padding:6px;
   border-radius:12px;
@@ -293,25 +300,34 @@ button:active{ transform: translateY(1px); }
 }
 
 .miniCell{
-  width:100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 1 / 1;          /* neliö */
   border-radius:6px;
   border:1px solid rgba(255,255,255,.10);
   display:grid;
   place-items:center;
-  font-size:12px;
-  font-weight:950;
-  line-height:1;
+  padding:0;
+  overflow:hidden;
+  line-height:0;
 }
+
+.miniCell svg{
+  width:100%;
+  height:100%;
+  display:block;
+  pointer-events:none;
+}
+
 .miniCell.water{ background: rgba(47,134,255,.55); }
 .miniCell.land{ background: rgba(106,106,106,.75); }
 .miniCell.shipNavy{ background: rgba(230,244,255,.55); color:#001a33; }
 .miniCell.shipPirate{ background: rgba(255,155,47,.60); color:#2a0f00; }
 
+
+
 .footerStatus{
-  margin-top:8px;
+  margin-bottom:8px;
   color:var(--muted);
-  font-size:12px;
+  font-size:24px;
   display:flex;
   justify-content:space-between;
   gap:10px;
@@ -485,6 +501,10 @@ button:active{ transform: translateY(1px); }
     <div class="bd boardCardBody" id="boardBody">
       <div class="board" id="board"></div>
     </div>
+	  <div class="footerStatus">
+        <div id="stUsed">–</div>
+        <div id="stDone">–</div>
+      </div>
   </div>
 
   <div class="card" id="paletteCard">
@@ -494,10 +514,7 @@ button:active{ transform: translateY(1px); }
     </div>
     <div class="bd" id="paletteBody">
       <div class="palette" id="palette"></div>
-      <div class="footerStatus">
-        <div id="stUsed">–</div>
-        <div id="stDone">–</div>
-      </div>
+
     </div>
   </div>
 </div>
@@ -794,43 +811,129 @@ button:active{ transform: translateY(1px); }
     }
   }
 
-  function makeMini(def, rot){
-    const cells = def.variants[rot%4];
-    const b = bbox(cells);
-    const W = b.w, H = b.h;
+function arrowSvg(rot, side){
+  const deg = (rot % 4) * 90;
+  const color = (side === "navy") ? "#ffffff" : "#000000";
 
-    const VW = 4, VH = 4;
-    const offX = Math.floor((VW - W) / 2);
-    const offY = Math.floor((VH - H) / 2);
+  return `
+  <svg viewBox="0 0 100 100"
+       width="100%" height="100%"
+       aria-hidden="true"
+       style="display:block; transform:rotate(${deg}deg); color:${color};">
+    <rect x="34" y="28" width="32" height="62" rx="3" fill="currentColor"/>
+    <polygon points="50,10 66,28 34,28" fill="currentColor"/>
+  </svg>`;
+}
 
-    const mini = document.createElement("div");
-    mini.className = "mini";
+function makeMini(def, rot){
+  const cells = def.variants[rot%4];
+  const b = bbox(cells);
+  const W = b.w, H = b.h;
 
-    const map = new Map();
-    for(const c of cells) map.set(`${c.x},${c.y}`, c);
+  const VW = 4, VH = 4;
+  const offX = Math.floor((VW - W) / 2);
+  const offY = Math.floor((VH - H) / 2);
 
-    for(let y=0;y<VH;y++){
-      for(let x=0;x<VW;x++){
-        const d = document.createElement("div");
-        d.className = "miniCell";
+  const mini = document.createElement("div");
+  mini.className = "mini";
 
-        const px = x - offX;
-        const py = y - offY;
-        const c = map.get(`${px},${py}`);
+  const map = new Map();
+  for(const c of cells) map.set(`${c.x},${c.y}`, c);
 
-        if(!c){
-          d.style.visibility="hidden";
-        }else{
-          d.style.visibility="visible";
-          d.classList.add(c.kind);
-          if(c.kind==="shipNavy") d.textContent="N";
-          if(c.kind==="shipPirate") d.textContent="P";
+  for(let y=0;y<VH;y++){
+    for(let x=0;x<VW;x++){
+      const d = document.createElement("div");
+      d.className = "miniCell";
+
+      const px = x - offX;
+      const py = y - offY;
+      const c = map.get(`${px},${py}`);
+
+      if(!c){
+        d.style.visibility="hidden";
+      }else{
+        d.style.visibility="visible";
+        d.classList.add(c.kind);
+
+        if(c.kind==="shipNavy"){
+          d.innerHTML = arrowSvg(rot, "navy");     // valkoinen nuoli
         }
-        mini.appendChild(d);
+        if(c.kind==="shipPirate"){
+          d.innerHTML = arrowSvg(rot, "pirate");   // musta nuoli
+        }
       }
+      mini.appendChild(d);
     }
-    return mini;
   }
+  return mini;
+}
+
+function navyAnchorIconSvg(){
+  return `
+  <svg viewBox="0 0 100 100" width="100%" height="100%" aria-hidden="true"
+       style="display:block;">
+    <g fill="none" stroke="#ffffff" stroke-width="6"
+       stroke-linecap="round" stroke-linejoin="round">
+
+      <!-- rengas -->
+      <circle cx="50" cy="16" r="10"></circle>
+
+      <!-- varsi -->
+      <path d="M50 26 L50 64"></path>
+
+      <!-- poikkipuu -->
+      <path d="M34 40 L66 40"></path>
+
+      <!-- pääkaari -->
+      <path d="M22 60 Q50 86 78 60"></path>
+
+      <!-- koukut (korjattu suunta) -->
+      <path d="M22 60 Q26 72 36 72"></path>
+      <path d="M78 60 Q74 72 64 72"></path>
+
+      <!-- keskipiikki -->
+      <path d="M50 64 L50 86"></path>
+
+    </g>
+  </svg>`;
+}
+
+function pirateSkullIconSvg(){
+  // Musta pääkallo harmaalla taustalla, täysin keskitetty
+  return `
+  <svg viewBox="0 0 100 100" width="100%" height="100%" aria-hidden="true"
+       style="display:block;">
+    <!-- harmaa tausta -->
+    <rect x="6" y="6" width="88" height="88" rx="18" fill="rgba(200,200,200,0.92)"></rect>
+
+    <!-- pää -->
+    <path d="M50 20
+             C32 20 22 32 22 46
+             C22 58 28 66 36 70
+             L36 78
+             C36 84 41 88 50 88
+             C59 88 64 84 64 78
+             L64 70
+             C72 66 78 58 78 46
+             C78 32 68 20 50 20 Z"
+          fill="#000"></path>
+
+    <!-- silmät -->
+    <circle cx="40" cy="46" r="7" fill="rgba(200,200,200,0.92)"></circle>
+    <circle cx="60" cy="46" r="7" fill="rgba(200,200,200,0.92)"></circle>
+
+    <!-- nenä -->
+    <path d="M50 54 L44 64 L56 64 Z" fill="rgba(200,200,200,0.92)"></path>
+
+    <!-- hampaat -->
+    <g fill="rgba(200,200,200,0.92)">
+      <rect x="42" y="74" width="4" height="10" rx="1"></rect>
+      <rect x="48" y="74" width="4" height="10" rx="1"></rect>
+      <rect x="54" y="74" width="4" height="10" rx="1"></rect>
+    </g>
+  </svg>`;
+}
+
 
   function renderPalette(){
     paletteEl.innerHTML="";
@@ -1035,69 +1138,76 @@ button:active{ transform: translateY(1px); }
     }
     lastAccepted = accepted;
   }
+function renderBoard(){
+  const occ = buildOcc();
+  const hints = Array.isArray(currentPuzzle().shipHints) ? currentPuzzle().shipHints : [];
 
-  function renderBoard(){
-    const occ = buildOcc();
-    const hints = Array.isArray(currentPuzzle().shipHints) ? currentPuzzle().shipHints : [];
+  for(const c of cellsEls) c.innerHTML="";
 
-    for(const c of cellsEls) c.innerHTML="";
+  for(let y=0;y<5;y++){
+    for(let x=0;x<5;x++){
+      const cell = occ[y][x];
+      if(!cell) continue;
 
-    for(let y=0;y<5;y++){
-      for(let x=0;x<5;x++){
-        const cell = occ[y][x];
-        if(!cell) continue;
+      const el = cellsEls[y*5+x];
 
-        const el = cellsEls[y*5+x];
+      const under=document.createElement("div");
+      under.className = "tile " + (cell.kind==="land" ? "land" : "water");
+      if(cell.kind==="shipNavy" || cell.kind==="shipPirate") under.className = "tile water";
+      el.appendChild(under);
 
-        const under=document.createElement("div");
-        under.className = "tile " + (cell.kind==="land" ? "land" : "water");
-        if(cell.kind==="shipNavy" || cell.kind==="shipPirate") under.className = "tile water";
-        el.appendChild(under);
+      if(cell.kind==="shipNavy" || cell.kind==="shipPirate"){
+        const key = `${x},${y}`;
+        const forceSinking = explodedCells.has(key);
 
-        if(cell.kind==="shipNavy" || cell.kind==="shipPirate"){
-          const key = `${x},${y}`;
-          const forceSinking = explodedCells.has(key);
+        const ship=document.createElement("div");
+        ship.className="ship";
 
-          const ship=document.createElement("div");
-          ship.className="ship";
+        const isNavy = (cell.kind==="shipNavy");
+        const svg = isNavy
+          ? (forceSinking ? NAVY_SINK_SVG : NAVY_SVG)
+          : (forceSinking ? PIRATE_SINK_SVG : PIRATE_SVG);
 
-          const isNavy = (cell.kind==="shipNavy");
-          const svg = isNavy
-            ? (forceSinking ? NAVY_SINK_SVG : NAVY_SVG)
-            : (forceSinking ? PIRATE_SINK_SVG : PIRATE_SVG);
+        ship.innerHTML = svg;
 
-          ship.innerHTML = svg;
-
-          const rotDeg = forceSinking ? 0 : (cell.rot*90);
-          ship.style.transform = `translate(-50%,-50%) rotate(${rotDeg}deg)`;
-          el.appendChild(ship);
-        }
-      }
-    }
-
-    for(const h of hints){
-      if(occ[h.y][h.x]) continue;
-      const el = cellsEls[h.y*5+h.x];
-      const box=document.createElement("div");
-      box.className = "hint " + (h.side==="navy" ? "hintN" : "hintP");
-      const tag=document.createElement("div");
-      tag.className="hintTag";
-      tag.textContent = (h.side==="navy") ? "N" : "P";
-      box.appendChild(tag);
-      el.appendChild(box);
-    }
-
-    for(let y=0;y<5;y++){
-      for(let x=0;x<5;x++){
-        const cell = occ[y][x];
-        if(!cell || !cell.locked) continue;
-        const el = cellsEls[y*5+x];
-        const ov = document.createElement("div");
-        ov.className = "islandOverlay " + (cell.kind==="land" ? "land" : "water");
-        el.appendChild(ov);
+        const rotDeg = forceSinking ? 0 : (cell.rot*90);
+        ship.style.transform = `translate(-50%,-50%) rotate(${rotDeg}deg)`;
+        el.appendChild(ship);
       }
     }
   }
+
+  // --- HINTS (path-SVG icons) ---
+  for(const h of hints){
+    if(occ[h.y][h.x]) continue;
+
+    const el = cellsEls[h.y*5+h.x];
+    const box=document.createElement("div");
+    box.className = "hint " + (h.side==="navy" ? "hintN" : "hintP");
+
+    const tag=document.createElement("div");
+    tag.className="hintTag";
+
+    tag.innerHTML = (h.side==="navy")
+      ? navyAnchorIconSvg()
+      : pirateSkullIconSvg();
+
+    box.appendChild(tag);
+    el.appendChild(box);
+  }
+
+  // --- Island overlay always on top ---
+  for(let y=0;y<5;y++){
+    for(let x=0;x<5;x++){
+      const cell = occ[y][x];
+      if(!cell || !cell.locked) continue;
+      const el = cellsEls[y*5+x];
+      const ov = document.createElement("div");
+      ov.className = "islandOverlay " + (cell.kind==="land" ? "land" : "water");
+      el.appendChild(ov);
+    }
+  }
+}
 
   function renderStatus(){
     stUsed.innerHTML = `Käytetty: <strong>${placed.length}/${PLAYABLE_DEFS.length}</strong>`;
