@@ -576,6 +576,8 @@ button:active{ transform: translateY(1px); }
     font-size:12px;
     margin-top:6px;
   }
+  
+  
 }
 
 </style>
@@ -1419,12 +1421,28 @@ function renderBoard(){
     document.documentElement.style.setProperty("--cell", cell + "px");
   }
 
-  window.addEventListener("resize", ()=>{
-    explodedCells.clear();
-    lastAccepted = false;
-    layoutFit();
-    renderAll();
-  }, {passive:true});
+// Korvaa nykyinen resize-listener tällä:
+function onResize(){
+  explodedCells.clear();
+  lastAccepted = false;
+  layoutFit();
+  renderAll();
+}
+
+window.addEventListener("resize", onResize, {passive:true});
+
+// Lisää tämä:
+if(window.visualViewport){
+  window.visualViewport.addEventListener("resize", onResize, {passive:true});
+}
+if(window.visualViewport){
+  window.visualViewport.addEventListener("resize", onResize, {passive:true});
+}
+
+window.addEventListener("orientationchange", ()=>{
+  setTimeout(onResize, 300);
+  setTimeout(onResize, 600); // varmuuden vuoksi kahdesti
+}, {passive:true});
 
   async function boot(){
     try{
@@ -1450,6 +1468,15 @@ function renderBoard(){
     if(puzzleSet.puzzles.length===0){
       puzzleSet.puzzles=[{name:"Pulma 1", mode:"peace", placements:[], shipHints:[] }];
     }
+
+function setAppHeight(){
+  const header = document.getElementById("topHeader");
+  const h = header ? header.getBoundingClientRect().height : 0;
+  // visualViewport antaa oikean korkeuden iPhonessa ilman osoitepalkkia
+  const vh = (window.visualViewport ? window.visualViewport.height : window.innerHeight);
+  const appH = Math.max(200, vh - h);
+  document.documentElement.style.setProperty("--appH", appH + "px");
+}
 
 function registerServiceWorker(){
   if ("serviceWorker" in navigator){
