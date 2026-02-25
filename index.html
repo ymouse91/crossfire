@@ -445,6 +445,11 @@ button:active{ transform: translateY(1px); }
 
   select, button{ padding:6px 9px; border-radius:10px; font-size:13px; }
 
+  /* iPhone: pidä alasvetovalikko + Reset + Seuraava samalla rivillä */
+  .row{ flex-wrap:nowrap; }
+  #puzzleSel{ flex:1 1 auto; min-width:0; }
+  #btnReset, #btnNext{ flex:0 0 auto; padding:6px 8px; font-size:12px; }
+
   .wrap{
     padding:6px;
     gap:6px;
@@ -497,7 +502,9 @@ button:active{ transform: translateY(1px); }
 
   <div class="row">
     <select id="puzzleSel"></select>
+	    <button id="btnNext" type="button">Seuraava</button>
     <button id="btnReset">Reset</button>
+
   </div>
 </header>
 
@@ -673,6 +680,7 @@ button:active{ transform: translateY(1px); }
   const helpBack = document.getElementById("helpBack");
   const btnHelp = document.getElementById("btnHelp");
   const btnHelpClose = document.getElementById("btnHelpClose");
+  const btnNext = document.getElementById("btnNext");
 
   function openHelp(){ helpBack.classList.add("show"); helpBack.setAttribute("aria-hidden","false"); }
   function closeHelp(){ helpBack.classList.remove("show"); helpBack.setAttribute("aria-hidden","true"); }
@@ -683,6 +691,8 @@ button:active{ transform: translateY(1px); }
 
   let puzzleSet = null;
   let activePuzzleIndex = 0;
+
+  const STORE_KEY = "pirates_crossfire_lastPuzzle";
 
   let lockedIslands = [];
   let placed = [];
@@ -1258,6 +1268,8 @@ function renderBoard(){
     activePuzzleIndex = Math.max(0, Math.min(puzzleSet.puzzles.length-1, idx));
     puzzleSel.value = String(activePuzzleIndex);
 
+    try{ localStorage.setItem(STORE_KEY, String(activePuzzleIndex)); }catch(e){}
+
     const placements = Array.isArray(currentPuzzle().placements) ? currentPuzzle().placements : [];
     lockedIslands = placements
       .filter(pl => pl && (pl.pieceId==="island1" || pl.pieceId==="island2"))
@@ -1279,6 +1291,16 @@ function renderBoard(){
     lastAccepted = false;
     renderAll();
   });
+
+
+  // Seuraava pulma
+  if(btnNext){
+    btnNext.addEventListener("click", ()=>{
+      if(!puzzleSet || !Array.isArray(puzzleSet.puzzles) || puzzleSet.puzzles.length===0) return;
+      const next = (activePuzzleIndex + 1) % puzzleSet.puzzles.length;
+      loadPuzzle(next);
+    });
+  }
 
   function setAppHeight(){
     const header = document.getElementById("topHeader");
@@ -1348,7 +1370,8 @@ function registerServiceWorker(){
 
     buildPuzzleSelect();
     layoutFit();
-    loadPuzzle(0);
+    const savedIdx = (()=>{ try{ return parseInt(localStorage.getItem(STORE_KEY)||"0",10); }catch(e){ return 0; } })();
+    loadPuzzle(Number.isFinite(savedIdx) ? savedIdx : 0);
 	registerServiceWorker();
   }
 
