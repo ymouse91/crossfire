@@ -457,6 +457,9 @@ button:active{ transform: translateY(1px); }
     height: var(--appH);
   }
 
+#boardCard .hd{
+  display:none;
+}
   .hd{ padding:6px 8px; }
   .bd{ padding:8px; }
 
@@ -489,6 +492,92 @@ button:active{ transform: translateY(1px); }
   :root{ --palW: 100%; }
   .wrap{ grid-template-columns: 1fr; }
 }
+
+/* ===== iPhone landscape ===== */
+@media (max-width: 930px) and (orientation: landscape) and (hover:none) and (pointer:coarse){
+
+  header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:8px;
+    padding:6px 10px;
+  }
+  h1{ font-size:14px; white-space:nowrap; }
+  #date{ display:none; }
+  .row{ display:flex; flex-wrap:nowrap; gap:6px; align-items:center; min-width:0; }
+  #puzzleSel{ width: clamp(180px, 34vw, 360px); min-width:0; }
+
+  select, button{
+    padding:6px 9px;
+    font-size:13px;
+    border-radius:10px;
+  }
+
+  .wrap{
+    grid-template-columns: 1fr min(40vw, 360px);
+    gap:8px;
+    padding:8px;
+    align-items:stretch;
+  }
+
+#boardCard .hd{
+  display:none;
+}
+  #paletteCard .hd{ display:none; }
+  #paletteCard .bd{ overflow:auto; min-height:0; }
+
+  .palette{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap:8px;
+    align-content:start;
+  }
+
+  .pmeta{ display:none !important; }
+
+  .piece{
+    display:flex;
+    flex-direction:column;
+    padding:6px;
+    overflow:hidden;
+    min-height:0;
+    align-items:stretch;     /* tärkeä: mini saa koko leveyden */
+    justify-content:flex-start;
+  }
+
+  /* MINI: aina piecen levyinen -> säästää tilaa ja pitää sisällön sisällä */
+  .mini{
+    width:100%;
+    height:auto;
+    aspect-ratio: 1 / 1;
+
+    box-sizing:border-box;
+    padding:2px;             /* jättää tilaa reunoille */
+    display:grid;
+    gap:2px;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: repeat(3, minmax(0, 1fr));
+
+    overflow:hidden;
+  }
+
+  /* minicellit varmasti minin sisään */
+  .mini > div{
+    min-width:0;
+    min-height:0;
+    width:100%;
+    height:100%;
+    font-size: clamp(10px, 2.4vw, 14px);
+    line-height:1;
+  }
+
+  .footerStatus{
+    font-size:12px;
+    margin-top:6px;
+  }
+}
+
 </style>
 </head>
 
@@ -1334,7 +1423,7 @@ function renderBoard(){
     explodedCells.clear();
     lastAccepted = false;
     layoutFit();
-    renderBoard();
+    renderAll();
   }, {passive:true});
 
   async function boot(){
