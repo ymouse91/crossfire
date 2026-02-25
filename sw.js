@@ -1,5 +1,5 @@
 /* offline-minimi */
-const CACHE_NAME = "crossfire-v3";
+const CACHE_NAME = "crossfire-v4";
 const FILES = [
   "./",
   "./index.html",
